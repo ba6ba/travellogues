@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/hotel_layout_height"
+    android:background="@color/white_color"
+    android:elevation="@dimen/layout_elevation"
+    >
+
+<LinearLayout
+    android:id="@+id/destinationLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/frames_bg"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cityDescription"
+        android:textSize="@dimen/small_text_size"
+        android:textColor="@color/lightGrey"
+        android:layout_margin="@dimen/small_margin"
+        android:fontFamily="@font/titilliumwebextralight"
+        />
+
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cityName"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/small_margin"
+        android:fontFamily="@font/titilliumwebregular"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/countryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/countryName"
+        android:textSize="@dimen/small_text_size"
+        android:textColor="@color/lightGrey"
+        android:layout_margin="@dimen/small_margin"
+        android:fontFamily="@font/titilliumwebregular"
+        />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/timingLayout"
+        android:layout_below="@id/destinationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/frames_bg"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cityDescription"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/lightGrey"
+            android:layout_margin="@dimen/small_margin"
+            android:fontFamily="@font/titilliumwebextralight"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cityName"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/small_margin"
+            android:fontFamily="@font/titilliumwebregular"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countryName"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/lightGrey"
+            android:layout_margin="@dimen/small_margin"
+            android:fontFamily="@font/titilliumwebregular"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchButton"
+        android:background="@drawable/search_button"
+        android:text="@string/search"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        android:fontFamily="@font/titilliumwebregular"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/hotel_layout_height"
+        />
+
+</RelativeLayout>

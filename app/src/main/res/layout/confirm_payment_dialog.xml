@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white_color"
+    app:cardMaxElevation="@dimen/greater_elevation"
+    app:cardElevation="@dimen/greater_elevation"
+    app:cardCornerRadius="0dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/small_margin"
+        >
+
+        <TextView
+            android:id="@+id/areYouSure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/are_you_sure_to_get_it_paid"
+            android:textAppearance="@style/DarkTextAppearanceSmall"
+            android:layout_marginTop="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/itemPriceTag"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/areYouSure"
+            android:layout_height="wrap_content"
+            android:text="@string/item_price"
+            android:background="@drawable/text_view_background"
+            android:textAppearance="@style/DarkTextAppearanceSmall"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            />
+
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/itemPriceTag"
+            android:text="@string/item_price"
+            android:background="@drawable/text_view_background_dark"
+            android:textAppearance="@style/LightTextAppearanceSmall"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:layout_below="@id/areYouSure"
+            />
+
+        <TextView
+            android:id="@+id/taxTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tax"
+            android:background="@drawable/text_view_background"
+            android:textAppearance="@style/DarkTextAppearanceSmall"
+            android:layout_below="@id/itemPriceTag"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/taxTag"
+            android:text="@string/tax"
+            android:textAlignment="center"
+            android:background="@drawable/text_view_background_dark"
+            android:textAppearance="@style/LightTextAppearanceSmall"
+            android:layout_margin="@dimen/small_margin"
+            android:layout_below="@id/itemPriceTag"
+            android:padding="@dimen/small_margin"
+            />
+
+        <TextView
+            android:id="@+id/totalTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total"
+            android:background="@drawable/text_view_background"
+            android:textAppearance="@style/DarkTextAppearanceSmall"
+            android:layout_below="@id/taxTag"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/totalTag"
+            android:text="@string/total"
+            android:background="@drawable/text_view_background_dark"
+            android:textAppearance="@style/LightTextAppearanceSmall"
+            android:layout_margin="@dimen/small_margin"
+            android:padding="@dimen/small_margin"
+            android:textAlignment="center"
+            android:layout_below="@id/taxTag"
+            />
+    </RelativeLayout>
+
+        <Button
+            android:id="@+id/payingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/LightTextAppearanceSmall"
+            android:textColor="@color/white_color"
+            android:layout_marginHorizontal="@dimen/very_large_margin"
+            android:background="@drawable/payment_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:text="@string/pay"
+            android:visibility="visible"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

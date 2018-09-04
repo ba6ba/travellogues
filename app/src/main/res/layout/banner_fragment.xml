@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:elevation="@dimen/layout_elevation"
+    android:layout_height="@dimen/banner_height">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/banner_height"
+        android:id="@+id/bannerImage"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        />
+
+
+    <EditText
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_view_bar"
+        android:textAlignment="textStart"
+        android:fontFamily="@font/titilliumwebregular"
+        android:textColorHint="@color/darkGrey"
+        android:hint="@string/search_hint"
+        android:drawableEnd="@drawable/ic_search_black_24dp"
+        android:drawableTint="@color/colorAccent"
+        android:textSize="@dimen/small_text_size"
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/small_padding"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/SliderDots"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/normal_margin"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

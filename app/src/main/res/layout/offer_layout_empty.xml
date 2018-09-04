@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/card_view_width"
+    android:layout_height="@dimen/card_view_height"
+    android:elevation="@dimen/layout_elevation"
+    android:orientation="vertical"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    android:layout_margin="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/small_margin"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/header_bg_gradient5"
+        >
+    <LinearLayout
+        android:id="@+id/exploreLayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+        <TextView
+            android:id="@+id/exploreMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/get_more"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_text_size"
+            android:fontFamily="@font/titilliumwebregular"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/exploreMore"
+            android:background="@drawable/back_icon"
+            android:backgroundTint="@color/black"
+            android:layout_marginStart="@dimen/very_small_margin"
+            android:rotation="180"
+            android:layout_gravity="center_vertical"
+            />
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

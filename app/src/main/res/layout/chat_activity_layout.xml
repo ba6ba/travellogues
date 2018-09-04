@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/noInternetLayout"
+        >
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_color"
+        android:orientation="vertical"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/chatToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_fragments_toolbar_height"
+            app:titleTextAppearance="@style/DarkTextAppearance"
+            android:elevation="@dimen/greater_elevation"
+            android:background="@drawable/round_reverse_bronze"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/chatToolbarTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_with_us"
+                android:textColor="@color/white_color"
+                android:gravity="center"
+                android:textAppearance="@style/DarkTextAppearanceMedium"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_below="@id/chatToolbar"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/chat_button_bg"
+                android:layout_margin="@dimen/small_margin"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/how_may_i_help_you"
+                android:textAppearance="@style/DarkTextAppearanceSmall"
+                android:textSize="@dimen/small_text_size"
+                android:layout_margin="@dimen/very_small_margin"
+                android:textColor="@color/darkGrey"
+                android:fontFamily="@font/titilliumwebregular"
+                />
+
+    </TableRow>
+
+        <RelativeLayout
+            android:id="@+id/sendRow"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="@dimen/very_small_margin"
+            android:layout_marginHorizontal="@dimen/very_v_small_margin"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ask_us_anything"
+            android:textAppearance="@style/DarkTextAppearanceSmall"
+            android:textSize="@dimen/above_small_text_size"
+            android:textAlignment="textStart"
+            android:backgroundTint="@color/white_color"
+            android:layout_toStartOf="@id/send"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/small_margin"
+            android:layout_centerVertical="true"
+
+            />
+            <ImageView
+                android:id="@+id/send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_send_black_24dp"
+                android:backgroundTint="@color/bronzeBlueScreen"
+                android:layout_marginHorizontal="@dimen/very_small_margin"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+            </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

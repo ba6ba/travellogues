@@ -1,0 +1,88 @@
+<android.support.v7.widget.CardView android:layout_width="300dp"
+    android:layout_height="180dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardMaxElevation="@dimen/greater_elevation"
+    app:cardElevation="@dimen/greater_elevation"
+    app:cardCornerRadius="@dimen/normal_radius"
+    app:cardPreventCornerOverlap="true"
+    android:layout_gravity="center"
+    android:id="@+id/paymentCardView"
+    >
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:src="@color/grey_200"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/code"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/very_small_margin"
+        android:background="@drawable/transparent_background"
+        android:padding="@dimen/very_small_margin"
+        android:elevation="@dimen/greater_elevation"
+        android:text="@string/any_query"
+        android:textAllCaps="true"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/small_text_size"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/fee"
+        android:text="@string/chat_with_us"
+        android:fontFamily="@font/montserratregular"
+        android:textColor="@color/white"
+        android:textSize="@dimen/small_text_size"
+        android:layout_gravity="end"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        />
+</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/logo"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        android:layout_gravity="bottom"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:text="@string/are_you_sure_to_get_it_paid"
+            android:fontFamily="@font/montserratbold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_text_size"
+            android:layout_centerVertical="true"
+            />
+
+
+        <ImageView
+            android:id="@+id/checkId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_check_circle_black_24dp"
+            android:backgroundTint="@color/grey_400"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/title"
+            />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

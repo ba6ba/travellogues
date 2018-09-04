@@ -1,0 +1,167 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/backGroundSort"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animateLayoutChanges="true"
+    android:background="@color/white_color"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@color/white_color"
+        android:paddingBottom="@dimen/normal_margin"
+        >
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_icon"
+            android:backgroundTint="@color/progressLoaderScreen"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:scaleType="centerCrop"
+            android:id="@+id/backButton"
+            />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/groundImageLayout"
+        android:requiresFadingEdge="horizontal"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:elevation="@dimen/greater_elevation"
+        >
+
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/curve_image_bg"
+            app:siShape="@drawable/curve_image_bg"
+            android:id="@+id/groundImageShadow"
+        />
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:layout_width="match_parent"
+            android:layout_height="195dp"
+            app:siShape="@drawable/curve_image_bg"
+            android:id="@+id/groundImage"
+            android:elevation="@dimen/greater_elevation"
+            />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/destinationNameGround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/groundImageLayout"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text_size"
+        android:fontFamily="@font/titilliumwebregular"
+        android:text="@string/checkIn"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:textAllCaps="false"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:lineSpacingExtra="-2dp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+
+    <TextView
+        android:id="@+id/destinationAddressGround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text_size"
+        android:fontFamily="@font/titilliumwebextralight"
+        android:layout_marginTop="@dimen/small_margin"
+        android:textAllCaps="false"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:lineSpacingExtra="-2dp"
+        android:textStyle="normal"
+        android:textAlignment="textStart"
+        android:drawableStart="@drawable/ic_place_black_24dp"
+        android:drawableTint="@color/white_color"
+        android:text="@string/address"
+        android:layout_below="@id/destinationNameGround"
+        />
+    <LinearLayout
+        android:id="@+id/nearHotelsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="@dimen/less_small_margin"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        android:layout_below="@id/destinationAddressGround"
+        >
+        <TextView
+            android:id="@+id/nearHotel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/near_hotels"
+            android:textAppearance="@style/DarkTextAppearanceMedium"
+            android:drawableEnd="@drawable/indicator_bg_dest"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/nearHotelRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:background="@color/white_color"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nearRestaurantsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="@dimen/less_small_margin"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        android:layout_below="@id/nearHotelsLayout"
+        >
+        <TextView
+            android:id="@+id/nearRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/near_restaurant"
+            android:textAppearance="@style/DarkTextAppearanceMedium"
+            android:drawableEnd="@drawable/indicator_bg_dest"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/nearRestaurantRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:background="@color/white_color"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/destinationsFab"
+        style="@style/FabMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/darkGrey"
+        android:padding="@dimen/very_small_margin"
+        android:src="@drawable/ic_beenhere_black_24dp"
+        app:borderWidth="2dp"
+        />
+    </RelativeLayout>
+</ScrollView>

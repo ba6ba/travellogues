@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/destination_card_view_width"
+    android:layout_height="@dimen/card_view_width"
+    android:background="@drawable/header_bg_gradient"
+    android:elevation="@dimen/layout_elevation"
+    android:orientation="vertical"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    android:layout_margin="@dimen/very_small_margin"
+    android:layout_marginBottom="@dimen/small_margin"
+    android:id="@+id/offersCardView"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/headerImage"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            />
+
+
+        <TextView
+            android:id="@+id/offerCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_color"
+            android:layout_marginBottom="@dimen/very_small_margin"
+            android:layout_alignBottom="@id/headerImage"
+            android:lineSpacingExtra="-4dp"
+            android:textSize="@dimen/normal_sub_heading_text_size"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/titilliumwebregular"
+            android:textAllCaps="true"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            />
+
+
+        <TextView
+            android:id="@+id/offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGrey"
+            android:textSize="@dimen/text_size_16"
+            android:fontFamily="@font/fondy"
+            android:textAllCaps="false"
+            android:lineSpacingExtra="-4dp"
+            android:text="@string/book_your_trip_avail_this_exciting_offer"
+            android:layout_below="@id/offerCardTitle"
+            android:ellipsize="marquee"
+            android:paddingTop="@dimen/very_small_margin"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

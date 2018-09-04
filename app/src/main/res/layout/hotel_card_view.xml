@@ -1,0 +1,91 @@
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/hotels_card_view_margin"
+    app:cardBackgroundColor="@color/white_color"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    android:layout_centerHorizontal="true"
+    android:layout_marginHorizontal="@dimen/small_margin"
+    android:elevation="@dimen/layout_elevation"
+    android:layout_marginBottom="@dimen/normal_margin"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/insideImageView"
+            android:layout_width="@dimen/inside_image_width_card_view"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@color/colorAccentScreen"
+            android:layout_alignParentLeft="true"
+            />
+
+        <LinearLayout
+            android:id="@+id/rightLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:layout_toRightOf="@id/insideImageView"
+            android:layout_toEndOf="@id/insideImageView"
+            android:background="@color/white_color"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/hotelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hotel_name"
+                android:textColor="@color/darkGrey"
+                android:textSize="@dimen/medium_text_size"
+                android:fontFamily="@font/titilliumwebregular"
+                />
+
+            <TextView
+                android:id="@+id/hotelCityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hotel_city_name"
+                android:textColor="@color/lightGrey"
+                android:textSize="@dimen/normal_heading_text_size"
+                android:fontFamily="@font/titilliumwebextralight"
+                />
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:id="@+id/hotelRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srb_starSize="@dimen/rating_stars_size"
+                android:soundEffectsEnabled="true"
+                app:srb_numberOfStars="5"
+                android:theme="@style/RatingBar"
+                app:srb_rating="5"
+                app:srb_isIndicator="true"
+                app:srb_starsSeparation="3dp"
+                app:srb_stepSize="1.0"
+                app:srb_pressedFillColor="@color/lightGrey"
+                app:srb_pressedBorderColor="@color/lightGrey"
+                app:srb_borderColor="@color/iconColor"
+                app:srb_fillColor="@color/iconColor"
+                android:layout_marginTop="@dimen/small_margin"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

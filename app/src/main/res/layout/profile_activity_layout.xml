@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="match_parent"
+    android:background="@color/white_color"
+    android:layout_height="match_parent">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainChild"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/noInternetLayout"
+        >
+
+    </FrameLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/profileToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_fragments_toolbar_height"
+        app:titleTextAppearance="@style/DarkTextAppearance"
+        android:elevation="@dimen/greater_elevation"
+        android:background="@color/white_color"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/profileToolbarTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/DarkTextAppearanceMedium"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileToolbar"
+        >
+
+
+     <RelativeLayout
+         android:id="@+id/headerLayout"
+         android:layout_width="match_parent"
+         android:layout_height="170dp"
+         android:layout_alignParentTop="true"
+         android:background="@drawable/profile_bg"
+         android:orientation="horizontal"
+         >
+         <de.hdodenhof.circleimageview.CircleImageView
+             android:id="@+id/profileIcon"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="60dp"
+             android:layout_height="60dp"
+             app:civ_border_width="2dp"
+             android:src="@drawable/profile_icon"
+             app:civ_border_color="@color/white_color"
+             android:layout_centerVertical="true"
+             android:layout_marginStart="@dimen/small_margin"
+             />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center_vertical"
+             android:layout_toRightOf="@id/profileIcon"
+             android:orientation="vertical"
+             android:layout_margin="@dimen/very_small_margin"
+             android:layout_centerVertical="true"
+             >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/profileName"
+             android:text="@string/person_name"
+             android:textAppearance="@style/DarkTextAppearanceMedium"
+             android:textColor="@color/white_color"
+             android:layout_marginStart="@dimen/very_small_margin"
+             />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/profileCategory"
+             android:text="@string/travelling_category"
+             android:textAppearance="@style/DarkTextAppearanceSmall"
+             android:textColor="@color/white_color"
+             android:layout_marginStart="@dimen/very_small_margin"
+             />
+         </LinearLayout>
+
+         </RelativeLayout>
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/headerLayout"
+         android:id="@+id/listsLayout"
+         android:layout_marginTop="@dimen/small_margin"
+         android:layout_marginVertical="@dimen/large_margin"
+         >
+
+         <android.support.v7.widget.CardView
+             android:id="@+id/myTrips"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:animateLayoutChanges="true"
+             android:clickable="true"
+             android:focusable="true"
+             android:foreground="?android:attr/selectableItemBackground"
+             android:background="@color/white_color"
+             android:layout_marginBottom="@dimen/very_v_small_margin"
+             android:animationCache="true">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:animateLayoutChanges="true"
+                 android:layout_margin="@dimen/small_margin"
+                 android:layout_gravity="center_vertical"
+                 >
+
+             <ImageView
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:id="@+id/myTripsIcon"
+                 android:scaleType="centerCrop"
+                 android:background="@drawable/ic_business_center_black_24dp"
+                 android:backgroundTint="@color/dark_gray"
+                 android:layout_alignParentStart="true"
+                 android:layout_marginStart="@dimen/very_small_margin"
+                 android:layout_centerVertical="true"
+                 />
+
+             <TextView
+                 android:id="@+id/trips"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/myTripsIcon"
+                 android:text="@string/my_trips"
+                 android:textAppearance="@style/DarkTextAppearanceSmall"
+                 android:layout_marginStart="@dimen/normal_margin"
+                 android:textStyle="bold"
+                 android:layout_centerVertical="true"
+                 />
+
+             <ImageView
+                 android:layout_width="20dp"
+                 android:layout_height="20dp"
+                 android:id="@+id/gotoIcon"
+                 android:scaleType="centerCrop"
+                 android:background="@drawable/ic_expand_less_black_24dp"
+                 android:rotation="90"
+                 android:backgroundTint="@color/dark_gray"
+                 android:layout_alignParentRight="true"
+                 android:layout_centerVertical="true"
+                 />
+             </RelativeLayout>
+         </android.support.v7.widget.CardView>
+
+         <android.support.v7.widget.CardView
+             android:id="@+id/myWallet"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white_color"
+             android:layout_marginBottom="@dimen/very_v_small_margin"
+             android:layout_below="@id/myTrips"
+             android:animateLayoutChanges="true"
+             android:foreground="?android:attr/selectableItemBackground"
+             android:clickable="true"
+             android:focusable="true"
+             android:animationCache="true">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:animateLayoutChanges="true"
+                 android:layout_margin="@dimen/small_margin"
+                 >
+
+                 <ImageView
+                     android:id="@+id/myWalletIcon"
+                     android:layout_width="25dp"
+                     android:layout_height="25dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_wallet_black_24dp"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentStart="true"
+                     android:layout_marginStart="@dimen/very_small_margin"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/my_wallet"
+                     android:textAppearance="@style/DarkTextAppearanceSmall"
+                     android:layout_marginStart="@dimen/normal_margin"
+                     android:textStyle="bold"
+                     android:layout_toRightOf="@id/myWalletIcon"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <ImageView
+                     android:layout_width="20dp"
+                     android:layout_height="20dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_expand_less_black_24dp"
+                     android:rotation="90"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     />
+             </RelativeLayout>
+         </android.support.v7.widget.CardView>
+
+         <android.support.v7.widget.CardView
+             android:id="@+id/myCards"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white_color"
+             android:layout_marginBottom="@dimen/very_v_small_margin"
+             android:layout_below="@id/myWallet"
+             android:animateLayoutChanges="true"
+             android:foreground="?android:attr/selectableItemBackground"
+             android:clickable="true"
+             android:focusable="true"
+             android:animationCache="true">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:animateLayoutChanges="true"
+                 android:layout_margin="@dimen/small_margin"
+                 >
+
+                 <ImageView
+                     android:id="@+id/myCardsIcon"
+                     android:layout_width="25dp"
+                     android:layout_height="25dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_credit_card_black_24dp"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentStart="true"
+                     android:layout_marginStart="@dimen/very_small_margin"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/my_cards"
+                     android:textAppearance="@style/DarkTextAppearanceSmall"
+                     android:layout_marginStart="@dimen/normal_margin"
+                     android:layout_gravity="center_vertical"
+                     android:layout_toRightOf="@id/myCardsIcon"
+                     android:textStyle="bold"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <ImageView
+                     android:layout_width="20dp"
+                     android:layout_height="20dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_expand_less_black_24dp"
+                     android:rotation="90"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     />
+             </RelativeLayout>
+
+         </android.support.v7.widget.CardView>
+
+         <android.support.v7.widget.CardView
+             android:id="@+id/scanQR"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white_color"
+             android:layout_marginBottom="@dimen/very_v_small_margin"
+             android:layout_below="@id/myCards"
+             android:clickable="true"
+             android:focusable="true"
+             android:foreground="?android:attr/selectableItemBackground"
+             android:animateLayoutChanges="true"
+             android:animationCache="true">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:animateLayoutChanges="true"
+                 android:layout_margin="@dimen/small_margin"
+                 android:layout_gravity="center_vertical"
+                 >
+
+                 <ImageView
+                     android:id="@+id/scanQRIcon"
+                     android:layout_width="25dp"
+                     android:layout_height="25dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/qr_code"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentStart="true"
+                     android:layout_marginStart="@dimen/very_small_margin"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/scan_QR"
+                     android:textAppearance="@style/DarkTextAppearanceSmall"
+                     android:layout_marginStart="@dimen/normal_margin"
+                     android:layout_gravity="center_vertical"
+                     android:layout_toRightOf="@id/scanQRIcon"
+                     android:textStyle="bold"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <ImageView
+                     android:layout_width="20dp"
+                     android:layout_height="20dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_expand_less_black_24dp"
+                     android:rotation="90"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     />
+             </RelativeLayout>
+
+         </android.support.v7.widget.CardView>
+
+         <android.support.v7.widget.CardView
+             android:id="@+id/changePassword"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white_color"
+             android:layout_marginBottom="@dimen/very_v_small_margin"
+             android:clickable="true"
+             android:focusable="true"
+             android:layout_below="@id/scanQR"
+             android:foreground="?android:attr/selectableItemBackground"
+             android:animateLayoutChanges="true"
+             android:animationCache="true">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:animateLayoutChanges="true"
+                 android:layout_margin="@dimen/small_margin"
+                 android:layout_gravity="center_vertical"
+                 >
+
+                 <ImageView
+                     android:id="@+id/changePasswordIcon"
+                     android:layout_width="25dp"
+                     android:layout_height="25dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/baseline_password_black_24dp"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentStart="true"
+                     android:layout_marginStart="@dimen/very_small_margin"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/change_pswrd"
+                     android:layout_toRightOf="@id/changePasswordIcon"
+                     android:textAppearance="@style/DarkTextAppearanceSmall"
+                     android:layout_marginStart="@dimen/normal_margin"
+                     android:layout_gravity="center_vertical"
+                     android:gravity="center_vertical"
+                     android:textStyle="bold"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <ImageView
+                     android:layout_width="20dp"
+                     android:layout_height="20dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_expand_less_black_24dp"
+                     android:rotation="90"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     />
+             </RelativeLayout>
+
+         </android.support.v7.widget.CardView>
+
+         <android.support.v7.widget.CardView
+             android:id="@+id/logout"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white_color"
+             android:layout_marginBottom="@dimen/very_v_small_margin"
+             android:clickable="true"
+             android:focusable="true"
+             android:foreground="?android:attr/selectableItemBackground"
+             android:layout_below="@id/changePassword"
+             android:animateLayoutChanges="true"
+             android:animationCache="true">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:animateLayoutChanges="true"
+                 android:layout_margin="@dimen/small_margin"
+                 android:layout_gravity="center_vertical"
+                 android:gravity="center_vertical"
+                 >
+
+                 <ImageView
+                     android:id="@+id/logoutIcon"
+                     android:layout_width="25dp"
+                     android:layout_height="25dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/logout"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentStart="true"
+                     android:layout_centerHorizontal="true"
+                     android:layout_marginStart="@dimen/very_small_margin"
+                     android:layout_centerVertical="true"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/logout"
+                     android:textAppearance="@style/DarkTextAppearanceSmall"
+                     android:layout_centerHorizontal="true"
+                     android:textSize="@dimen/text_size_16"
+                     android:layout_toRightOf="@id/logoutIcon"
+                     android:textStyle="bold"
+                     android:layout_marginStart="@dimen/normal_margin"
+                     android:layout_centerVertical="true"
+                     />
+                 <ImageView
+                     android:layout_width="20dp"
+                     android:layout_height="20dp"
+                     android:scaleType="centerCrop"
+                     android:background="@drawable/ic_expand_less_black_24dp"
+                     android:rotation="90"
+                     android:backgroundTint="@color/dark_gray"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     />
+             </RelativeLayout>
+         </android.support.v7.widget.CardView>
+
+
+     </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

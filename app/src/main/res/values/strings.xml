@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">final-year-project</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="some_went_wrong">There\'s Something Wrong.</string>
+    <string name="home_tab">Home</string>
+    <string name="chat_tab">Chat</string>
+    <string name="trips_tab">Trips</string>
+    <string name="search_hint">Search for Your Destination</string>
+    <string name="reason_string">Reason why World travels with us.</string>
+    <string name="tap_below_string">Tap below to know it.</string>
+    <string name="super_offers_string">Super Offers</string>
+    <string name="travel_blog_string">Travel Blog</string>
+    <string name="know_more">Know More</string>
+    <string name="zero_cancellation">Zero Cancellation</string>
+    <string name="no_cancellation_fee_desc">No cancellation fee on your flight bookings.</string>
+    <string name="add_on_services">Add-On Services</string>
+    <string name="add_on_services_desc">Add Meals, select seats and more at a lower price.</string>
+    <string name="best_price">Best Price Guarantee</string>
+    <string name="best_price_desc">Find a lower price for your flight and hotel booking, get up to 5x discount</string>
+    <string name="places_string">Places for You</string>
+    <string name="popular_hotels">Popular Hotels</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="hotel_city_name">Hotel City Name</string>
+    <string name="cityDescription">CITY / AREA / HOTEL NAME</string>
+    <string name="cityName">City Name</string>
+    <string name="countryName">Country Name</string>
+    <string name="checkIn">Check In</string>
+    <string name="dummyDate">00</string>
+    <string name="alphaDate">AUG 2018 \\n Wednesday</string>
+    <string name="checkOut">Check Out</string>
+    <string name="guests">Guests</string>
+    <string name="noOfGuests">99</string>
+    <string name="rooms">Rooms</string>
+    <string name="noOfRooms">10</string>
+    <string name="travelPurpose">Travel Purpose</string>
+    <string name="leisure">Leisure</string>
+    <string name="work">Work</string>
+    <string name="search">Search</string>
+    <string name="hotel_description">Description</string>
+    <string name="explore_more">Explore More</string>
+    <string name="destinations">Destinations</string>
+    <string name="will_update_more">Will Update More.</string>
+    <string name="book_now">Book Now !</string>
+    <string name="plan_my_trip">Plan <b>My Trip</b></string>
+    <string name="select_place">Select Place</string>
+    <string name="profile">Profile</string>
+    <string name="get_more">Get More</string>
+    <string name="from">From</string>
+    <string name="route">Route</string>
+    <string name="recommendation">Hotels Recommendation for your Trip.</string>
+    <string name="recommended_hotels">Recommended Hotels</string>
+    <string name="plan_my_trip_button">Plan My Trip</string>
+
+
+    <!---->
+    <string name="material_calendar_monday">M</string>
+    <string name="material_calendar_tuesday">T</string>
+    <string name="material_calendar_wednesday">W</string>
+    <string name="material_calendar_thursday">T</string>
+    <string name="material_calendar_friday">F</string>
+    <string name="material_calendar_saturday">S</string>
+    <string name="material_calendar_sunday">S</string>
+
+    <array name="material_calendar_months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </array>
+
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+    <string name="New">New</string>
+    <string name="fromDate">Thurs, 06-May-2018</string>
+    <string name="toDate">Thurs, 15-May-2018</string>
+    <string name="to">to</string>
+    <string name="near_hotels">Nearby Hotels</string>
+    <string name="near_restaurant">Nearby Restaurant</string>
+    <string name="address">Address</string>
+    <string name="start_chat">Start Chat</string>
+    <string name="chat_desc">Help us to assist You !</string>
+    <string name="chat_desc_text"><![CDATA[Ask us for finding a Destination, Hotel, Restaurant & more.]]></string>
+    <string name="adults">Adults</string>
+    <string name="child">Children</string>
+    <string name="plus">+</string>
+    <string name="travelers_information">Travelers Information</string>
+    <string name="firstName">First Name</string>
+    <string name="Name">Name</string>
+    <string name="Address">Address</string>
+    <string name="Contact">Contact No</string>
+    <string name="Email">Email</string>
+    <string name="add_payment_method">Add Payment Method</string>
+    <string name="cards">Cards</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cardNumber">Card Number</string>
+    <string name="card_holder">Card Holder</string>
+    <string name="amount">Amount</string>
+    <string name="pay">Pay</string>
+    <string name="cardname">Card Name</string>
+    <string name="cardValue">*****-*****-**</string>
+    <string name="rsValue">100000/-</string>
+    <string name="cardHolderName">Card Holder Name</string>
+    <string name="proceed">Proceed</string>
+    <string name="item_price">Item Price</string>
+    <string name="tax">Tax</string>
+    <string name="total">Total Amount</string>
+    <string name="congratulations_nyour_request_has_been_submitted">Congratulations ! Your Request has been Submitted</string>
+    <string name="are_you_sure_to_get_it_paid">Are you Sure to get it Paid?</string>
+    <string name="economical_restaurants">Economical Restaurants</string>
+    <string name="luxury_restaurants">Luxury Restaurants</string>
+    <string name="restCategory">Select Restaurants Category</string>
+    <string name="cabCategory">Select Cab Category</string>
+    <string name="economical_cabs">Economical Cabs</string>
+    <string name="luxury_cabs">Luxury Cabs</string>
+    <string name="sorry_message">Sorry ! We have no recommendations for selected Entity.</string>
+    <string name="select_one_string">Select one item for instance</string>
+    <string name="selected">Selected</string>
+    <string name="card_length">Card Number should be equals to 12</string>
+    <string name="name_should_be">Name should be greater than 5 digits</string>
+    <string name="must_not_be_empty">Must not be empty</string>
+    <string name="enter_valid_email">Please enter Valid Email</string>
+    <string name="number_length">Number length must not be greater or less than 10 digits</string>
+    <string name="country_code">+92</string>
+    <string name="price">Price</string>
+    <string name="nothing_to_show">Nothing to Show</string>
+    <string name="hotel_address">Address</string>
+    <string name="details">Details</string>
+    <string name="per_day"> per Day</string>
+    <string name="percent_symbol">%</string>
+    <string name="must_select_place">Must select Place</string>
+    <string name="pkr">PKR</string>
+    <string name="attractions">Attractions :</string>
+    <string name="person_name">Person Name</string>
+    <string name="travelling_category">Travelling Category</string>
+    <string name="my_trips">My Trips</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="my_cards">My Cards</string>
+    <string name="change_pswrd">Change Password</string>
+    <string name="logout">Logout</string>
+    <string name="scan_QR">Scan QR</string>
+    <string name="this_service_not_available">Sorry, this Service is not Available yet.</string>
+    <string name="ok">Ok</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="skip">SKIP</string>
+    <string name="join_us">JOIN US !!</string>
+    <string name="full_name">Name</string>
+    <string name="experience_the_best">Experience the Best !</string>
+    <string name="get_started">Get Started</string>
+    <string name="secondName">Second Name</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="google">Google +</string>
+    <string name="approved">Approved</string>
+    <string name="bill_amount">Bill Amount</string>
+    <string name="plan_your_trip_with_travellogues">Plan your trip with<u> Travellogues</u> !!</string>
+    <string name="book_your_trip_avail_this_exciting_offer">Book your trip and avail this exciting offer</string>
+    <string name="chat_with_us">Chat with us !</string>
+    <string name="any_query">Any Query?</string>
+    <string name="how_may_i_help_you">Hello, how may i help you ?</string>
+    <string name="ask_us_anything">Ask us anything, about Destination, Hotel</string>
+
+
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/places_card_view_width"
+    android:layout_height="@dimen/places_card_view_height"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    android:layout_margin="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/small_margin"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:id="@+id/backgroundImage"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_marginBottom="@dimen/small_margin"
+        >
+
+    <TextView
+        android:id="@+id/placeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/medium_text_size"
+        android:fontFamily="@font/blacksword"
+        android:textAllCaps="false"
+        android:text="@string/select_place"
+        android:padding="@dimen/very_small_margin"
+        android:lineSpacingExtra="-2dp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_alignParentBottom="true"
+        />
+
+       <!-- <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/placesRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="@dimen/rating_stars_size"
+            android:layout_margin="@dimen/small_margin"
+            android:soundEffectsEnabled="true"
+            android:theme="@style/RatingBar"
+            app:srb_isIndicator="true"
+            app:srb_numberOfStars="5"
+            app:srb_rating="5"
+            app:srb_starsSeparation="5dp"
+            app:srb_stepSize="1.0"
+            app:srb_pressedFillColor="@color/lightGrey"
+            app:srb_pressedBorderColor="@color/lightGrey"
+            app:srb_borderColor="@color/darkGrey"
+            app:srb_fillColor="@color/darkGrey"
+            android:layout_below="@id/placeName"
+            />-->
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

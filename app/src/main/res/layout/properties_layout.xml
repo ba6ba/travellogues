@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+<android.support.v7.widget.CardView
+    android:id="@+id/propertiesCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardUseCompatPadding="true"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/white_color"
+    android:padding="@dimen/very_small_margin"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_margin="@dimen/normal_margin"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/multipleIconsLayout"
+            android:orientation="horizontal"
+            android:gravity="start"
+            >
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/propertyCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGrey"
+            android:textSize="@dimen/normal_heading_text_size"
+            android:fontFamily="@font/titilliumwebregular"
+            android:layout_below="@id/multipleIconsLayout"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/propertyCardDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/lightGrey"
+            android:textSize="@dimen/normal_sub_heading_text_size"
+            android:fontFamily="@font/titilliumwebextralight"
+            android:layout_below="@id/propertyCardTitle"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:lineSpacingExtra="1dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/iconColor"
+            android:textSize="@dimen/small_text_size"
+            android:fontFamily="@font/titilliumwebextralight"
+            android:text="@string/know_more"
+            android:textAllCaps="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
+</LinearLayout>

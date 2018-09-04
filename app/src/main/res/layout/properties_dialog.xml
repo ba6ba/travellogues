@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/destination_card_view_width"
+    android:layout_height="@dimen/v_large_margin"
+    android:background="@drawable/header_bg_gradient"
+    android:elevation="@dimen/layout_elevation"
+    android:orientation="vertical"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    android:layout_margin="@dimen/very_small_margin"
+    android:layout_marginBottom="@dimen/small_margin"
+    android:id="@+id/offersCardView"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/headerImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/curve_image_bg_bronze_blue"
+            android:layout_alignParentRight="true"
+            />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGrey"
+            android:lineSpacingExtra="-4dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textSize="@dimen/large_text_size"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/nexabold"
+            android:textAllCaps="true"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            />
+
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGrey"
+            android:textSize="@dimen/text_size_16"
+            android:textStyle="bold"
+            android:fontFamily="@font/nexalightwebfont"
+            android:textAllCaps="false"
+            android:lineSpacingExtra="1dp"
+            android:text="@string/book_your_trip_avail_this_exciting_offer"
+            android:layout_below="@id/title"
+            android:maxLines="3"
+            android:ellipsize="marquee"
+            android:paddingTop="@dimen/very_small_margin"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            />
+    <RelativeLayout
+        android:id="@+id/chatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/very_small_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/anyQuery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGrey"
+            android:textSize="@dimen/text_size_16"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserratthin"
+            android:text="@string/any_query"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <TextView
+            android:id="@+id/chatWithUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/googlePlusColor"
+            android:textSize="@dimen/text_size_16"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserratbold"
+            android:text="@string/chat_with_us"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/anyQuery"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            />
+
+        <ImageView
+            android:id="@+id/chatButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/chat_button_bg"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_alignParentRight="true"
+            />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

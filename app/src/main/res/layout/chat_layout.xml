@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/white_color"
+    >
+
+<ImageView
+    android:id="@+id/chatBgImage"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:scaleType="centerCrop"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chat_desc"
+        android:textAppearance="@style/DarkTextAppearanceSmall"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chat_desc_text"
+        android:textAppearance="@style/DarkTextAppearanceSmall"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/small_margin"
+        />
+<Button
+    android:id="@+id/startChatButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/LightTextAppearanceSmall"
+    android:textColor="@color/black"
+    android:layout_marginHorizontal="@dimen/very_large_margin"
+    android:background="@drawable/chat_button_bg"
+    android:text="@string/start_chat"
+    android:layout_marginTop="@dimen/very_large_margin"
+    />
+</LinearLayout>

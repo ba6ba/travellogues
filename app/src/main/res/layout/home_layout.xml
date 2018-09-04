@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainChildLayout"
+        >
+
+
+        <fragment
+            android:id="@+id/bannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/banner_height"
+            android:fitsSystemWindows="true"
+            android:name="Main.modules.home.banners.MainBanner"
+            android:layout_alignParentTop="true"
+            />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/topIconsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/bannerFragment"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="horizontal"
+            android:background="@drawable/layout_background"
+            android:elevation="@dimen/layout_elevation"
+            android:animateLayoutChanges="true"
+            android:layout_marginTop="@dimen/very_small_margin"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/topIconsRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_gravity="center"
+                >
+            </android.support.v7.widget.RecyclerView>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+
+        <LinearLayout
+            android:id="@+id/propertiesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topIconsLayout"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/layout_background"
+            android:layout_marginTop="@dimen/normal_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical"
+            android:elevation="@dimen/layout_elevation"
+            android:layout_marginBottom="@dimen/small_margin"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reason_string"
+                android:fontFamily="@font/titilliumwebextralight"
+                android:textSize="@dimen/normal_heading_text_size"
+                android:textColor="@color/lightGrey"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tap_below_string"
+                android:fontFamily="@font/titilliumwebregular"
+                android:textSize="@dimen/normal_sub_heading_text_size"
+                android:textColor="@color/darkGrey"
+                android:layout_marginStart="@dimen/small_margin"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/propertiesRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/very_small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                >
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/OffersLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/propertiesLayout"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/layout_background"
+            android:layout_marginTop="@dimen/normal_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical"
+            android:elevation="@dimen/layout_elevation"
+            android:layout_marginBottom="@dimen/small_margin"
+            >
+
+
+            <TextView
+                android:id="@+id/superOffers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/super_offers_string"
+                android:fontFamily="@font/titilliumwebregular"
+                android:textSize="@dimen/medium_text_size"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginStart="@dimen/small_margin"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/know_more"
+                android:fontFamily="@font/titilliumwebextralight"
+                android:textSize="@dimen/normal_sub_heading_text_size"
+                android:textColor="@color/darkGrey"
+                android:layout_marginStart="@dimen/small_margin"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/offersRecyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/small_margin"
+                >
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/PlacesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/OffersLayout"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/layout_background"
+            android:layout_marginTop="@dimen/normal_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical"
+            android:elevation="@dimen/layout_elevation"
+            android:layout_marginBottom="@dimen/small_margin"
+            >
+
+            <TextView
+                android:id="@+id/placesForyou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/places_string"
+                android:fontFamily="@font/titilliumwebregular"
+                android:textSize="@dimen/medium_text_size"
+                android:textColor="@color/darkGrey"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginStart="@dimen/small_margin"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/placesRecyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/small_margin"
+                >
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <fragment
+            android:layout_below="@id/PlacesLayout"
+            android:id="@+id/hotelsFragment"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_height="@dimen/fragment_hotels_height"
+            android:fitsSystemWindows="true"
+            android:name="Main.modules.home.banners.HotelBanner"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

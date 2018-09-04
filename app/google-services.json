@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "608137174698",
+    "firebase_url": "https://travellogues-00010.firebaseio.com",
+    "project_id": "travellogues-00010",
+    "storage_bucket": "travellogues-00010.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608137174698:android:88a1c5f9c03bb460",
+        "android_client_info": {
+          "package_name": "com.example.sarwan.final_year_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608137174698-oh2tklctbrd2gbkdfquehnea98d26blb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sarwan.final_year_project",
+            "certificate_hash": "59aa37dea21978083cec78d1fc70f58229738f28"
+          }
+        },
+        {
+          "client_id": "608137174698-3n1hqfr348n655gtvs0j0j718pnsor18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLVB3GOTekk2ntlqP2nHWbGuWKmh4P7Z0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608137174698-3n1hqfr348n655gtvs0j0j718pnsor18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

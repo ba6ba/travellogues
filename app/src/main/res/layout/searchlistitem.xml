@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/listLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingStart="8dp"
+    android:paddingLeft="8dp"
+    android:paddingTop="4dp"
+    android:layout_centerInParent="true"
+    android:background="@color/white_color"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/businessTitle"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="18sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Business Name"
+        android:fontFamily="@font/titilliumwebextralight"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/businessdescription"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/businessTitle"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Description"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/titilliumwebextralight"
+        />
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#bababa"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

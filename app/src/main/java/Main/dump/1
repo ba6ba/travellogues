@@ -1,0 +1,35 @@
+val builder = DatePickerBuilder(context!!, OnSelectDateListener {
+
+                from.setText(simpleDateFormat.format(it.get(0)) + ApplicationConstants.TO +
+                        simpleDateFormat.format(it.get(it.size-1)).toString())
+                pActivity?.showProgress()
+                loadHotelsData(data as ArrayList<HotelData>)
+                /*fun onSelect(calendars : List<Calendar>) {
+                    from.setText(simpleDateFormat.format(calendars.first()) + ApplicationConstants.TO +
+                            simpleDateFormat.format(calendars.last()).toString())
+                }*/
+            })
+            .pickerType(CalendarView.ONE_DAY_PICKER)
+                    .date(Calendar.getInstance()) // Initial date as Calendar object
+                    .minimumDate(Calendar.getInstance()) // Minimum available date
+                    .maximumDate(Calendar.getInstance()) // Maximum available date
+//                    .disabledDays(List<Calendar>) /// List of disabled days
+                    .headerColor(R.color.bronzeBlue) // Color of the dialog header
+                    .headerLabelColor(R.color.white_color) // Color of the header label
+                    .previousButtonSrc(R.drawable.back_icon) // Custom drawable of the previous arrow
+                    .forwardButtonSrc((R.drawable.back_icon)) // Custom drawable of the forward arrow
+                    .previousPageChangeListener(OnCalendarPageChangeListener{}) // Listener called when scroll to the previous page
+                    .forwardPageChangeListener(OnCalendarPageChangeListener{}) // Listener called when scroll to the next page
+                    .abbreviationsBarColor(R.color.darkMagenta) // Color of bar with day symbols
+                    .abbreviationsLabelsColor(R.color.white_color) // Color of symbol labels
+                    .pagesColor(R.color.transparent) // Color of the calendar background
+                    .selectionColor(R.color.colorAccent) // Color of the selection circle
+                    .selectionLabelColor(R.color.colorAccentScreen) // Color of the label in the circle
+                    .daysLabelsColor(R.color.darkGrey) // Color of days numbers
+                    .anotherMonthsDaysLabelsColor(R.color.darkGrey) // Color of visible days numbers from previous and next month page
+                    .disabledDaysLabelsColor(R.color.lightestGrey) // Color of disabled days numbers
+                    .todayLabelColor(R.color.progressLoader) // Color of the today number
+                    .dialogButtonsColor(R.color.darkMagenta) // Color of "Cancel" and "OK" buttons
+
+            val datePicker = builder.build()
+            datePicker.show()

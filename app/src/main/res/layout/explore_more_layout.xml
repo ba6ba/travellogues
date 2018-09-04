@@ -1,0 +1,36 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/exploreLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@id/cardView"
+    android:layout_marginEnd="@dimen/small_margin"
+    android:layout_marginTop="@dimen/small_margin"
+    android:gravity="center_vertical"
+    android:layout_alignParentEnd="true"
+    >
+    <TextView
+        android:id="@+id/exploreMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/explore_more"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text_size"
+        android:fontFamily="@font/titilliumwebregular"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@id/exploreMore"
+        android:background="@drawable/back_icon"
+        android:layout_marginStart="@dimen/very_small_margin"
+        android:rotation="180"
+        android:layout_gravity="center_vertical"
+        />
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#edeb23</color>
+    <color name="colorPrimaryDark">#414141</color>
+    <color name="colorAccent">#0ef1c3</color>
+    <color name="progressLoader">#FF7650</color>
+    <color name="progressLoaderScreen">#cc2e02</color>
+    <color name="white_color">#FFFFFF</color>
+    <color name="transparent">#7affffff</color>
+    <color name="transparent_black">#c3000000</color>
+    <color name="transparent226">#e2ffffff</color>
+    <color name="darkGrey">#414141</color>
+    <color name="lightGrey">#b3b1b1</color>
+    <color name="iconColor">#0bacf7</color>
+    <color name="lightestGrey">#e7e4e4</color>
+    <color name="colorAccentScreen">#c2f9ee</color>
+    <color name="parrotGreen">#61f44e</color>
+    <color name="babyPink">#ff4690</color>
+    ]<color name="bronzeBlue">#1018f2</color>
+    <color name="bronzeBlueScreen">#6f74ff</color>
+    <color name="darkMagentaScreen">#ff2983</color>
+    <color name="darkMagenta">#c70a59</color>
+    <color name="black">#000000</color>
+    <color name="yellow200">#fff59d</color>
+    <color name="yellow100">#fff9c4</color>
+    <color name="facebookColor">#3b5998</color>
+    <color name="twitterColor">#1da1f2</color>
+    <color name="googlePlusColor">#d44638</color>
+    <color name="colorBlue">#1699D1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_400">#cfcfcf</color>
+    <color name="grey_500">#a4a4a4</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_800">#212121</color>
+
+</resources>

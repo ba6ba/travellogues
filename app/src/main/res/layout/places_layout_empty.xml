@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/places_card_view_width"
+    android:layout_height="@dimen/places_card_view_height"
+    app:cardElevation="@dimen/layout_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardMaxElevation="@dimen/layout_elevation"
+    android:layout_margin="@dimen/small_margin"
+    android:layout_marginBottom="@dimen/small_margin"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/places_card_view_image_height"
+        android:scaleType="fitXY"
+        android:id="@+id/backgroundImage1"
+        android:background="@color/white_color"
+        />
+
+    <include
+        android:id="@+id/explore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center_horizontal"
+        layout="@layout/explore_more_layout"
+        />
+
+</android.support.v7.widget.CardView>
