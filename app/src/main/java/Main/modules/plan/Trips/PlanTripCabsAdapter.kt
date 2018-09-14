@@ -59,7 +59,7 @@ class PlanTripCabsAdapter(private val context : Context, private val dataList : 
             itemView.planTripCabDiscount.text = (ApplicationConstants.DISCOUNT).capitalize() +" "+ data.cabDiscount.toString() + context.getString(R.string.percent_symbol)
             setOnClickListener(position)
 
-            if(!data.checkEnabled!!){
+            if(!data.checkEnabled){
                 itemView.cabsCheckId.setImageResource(R.drawable.ic_check_circle_black_24dp)
             }
             else {

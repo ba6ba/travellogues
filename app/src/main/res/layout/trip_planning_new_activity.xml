@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tripToolbar"
-                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/small_margin"
                 android:layout_marginBottom="@dimen/small_margin"
                 android:layout_marginHorizontal="@dimen/small_margin"
                 >
@@ -33,7 +33,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/small_text_size"
                     android:text="Select your preferred package for this Trip."
-                    android:layout_marginVertical="@dimen/small_margin"
+                    android:layout_marginBottom="@dimen/small_margin"
                     />
 
                 <TextView
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/luxury"
                     android:text="@string/luxury"
-                    android:background="@color/progressLoader"
+                    android:background="@drawable/text_view_background_red"
                     android:textColor="@color/white_color"
                     android:textAlignment="center"
                     android:textSize="@dimen/normal_text_size"
@@ -59,7 +59,7 @@
                     android:id="@+id/economic"
                     android:text="@string/economic"
                     android:layout_gravity="start"
-                    android:background="@color/progressLoader"
+                    android:background="@drawable/text_view_background_red"
                     android:textColor="@color/white_color"
                     android:textAlignment="center"
                     android:textSize="@dimen/normal_text_size"
@@ -100,6 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="@dimen/very_small_margin"
+                    android:imeOptions="actionNext"
                     android:maxLength="2"
                     android:textAppearance="@style/DarkTextAppearanceSmall"
                     android:textStyle="normal"
@@ -136,6 +137,7 @@
                     android:drawableRight="@drawable/men_icon"
                     android:paddingEnd="@dimen/very_small_margin"
                     android:focusable="true"
+                    android:imeOptions="actionDone"
                     android:clickable="true"
                     android:textSize="@dimen/text_size_16"
                     android:layout_marginStart="@dimen/very_small_margin"
@@ -173,7 +175,7 @@
                     android:background="@drawable/ic_date_range_black_24dp"
                     />
 
-                <TextView
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/from"
@@ -181,17 +183,15 @@
                     android:textAppearance="@style/DarkTextAppearanceSmall"
                     android:layout_marginHorizontal="@dimen/very_small_margin"
                     android:textSize="@dimen/small_text_size"
+                    android:backgroundTint="@color/white_color"
+                    android:enabled="false"
+                    android:fontFamily="@font/montserratregular"
+                    android:textColor="@color/black"
                     />
 
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/separator"
-                    android:layout_width="2dp"
-                    android:layout_height="20dp"
-                    android:background="@color/colorAccentScreen"
-                    android:layout_centerHorizontal="true"
-                    />
+
 
                 <LinearLayout
                     android:id="@+id/endDateLayout"
@@ -203,14 +203,18 @@
                     android:layout_alignParentRight="true"
                     >
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/to"
                         android:hint="@string/fromDate"
                         android:textAppearance="@style/DarkTextAppearanceSmall"
                         android:layout_marginHorizontal="@dimen/very_small_margin"
+                        android:fontFamily="@font/montserratregular"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/small_text_size"
+                        android:enabled="false"
+                        android:backgroundTint="@color/white_color"
                         />
 
 
@@ -235,27 +239,27 @@
                     android:layout_below="@id/endDateLayout"
                     android:textColor="@color/facebookColor"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/totalDays"
-                    android:textAppearance="@style/DarkTextAppearanceSmall"
-                    android:layout_marginHorizontal="@dimen/very_small_margin"
-                    android:textSize="@dimen/medium_text_size"
-                    android:fontFamily="@font/montserratsemibold"
-                    android:layout_marginVertical="@dimen/small_margin"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/separator"
-                    android:visibility="gone"
-                    />
 
             </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/totalDays"
+                android:textAppearance="@style/DarkTextAppearanceSmall"
+                android:layout_marginHorizontal="@dimen/very_small_margin"
+                android:textSize="@dimen/medium_text_size"
+                android:fontFamily="@font/montserratsemibold"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:layout_below="@id/calendarLayout"
+                />
+
             <LinearLayout
                 android:id="@+id/selectRegionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_below="@+id/calendarLayout"
+                android:layout_below="@+id/totalDays"
                 android:paddingBottom="@dimen/medium_margin"
             >
 
@@ -434,6 +438,35 @@
             </android.support.v7.widget.RecyclerView>
         </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/belowSpinnerLayout"
+                android:layout_marginVertical="@dimen/small_margin"
+                >
+                <TextView
+                    android:id="@+id/cabs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserratregular"
+                    android:textAppearance="@style/DarkTextAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size"
+                    android:text="Cab recommended for your trip"
+                    android:layout_marginHorizontal="@dimen/small_margin"
+                    android:layout_marginVertical="@dimen/small_margin"
+                    />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recCabsRecyclerview"
+                    android:layout_below="@id/cabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:visibility="gone"
+                    android:layout_marginVertical="@dimen/small_margin"
+                    >
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 

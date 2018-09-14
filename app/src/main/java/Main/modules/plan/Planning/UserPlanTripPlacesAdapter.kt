@@ -138,14 +138,14 @@ class UserPlanTripPlacesAdapter(private val context : Context, private val dataL
                 {
                     if(start){
                         dataList.get(i)?.startPlaceCheck = true
-                        dataListener.onStart(dataList.get(i)?.placeName)
+                        dataListener.onStart(dataList.get(i))
                         startPlace = dataList.get(i)?.placeName!!
                         startPlaceLat=dataList.get(i)?.location?.latitude!!
                         startPlaceLon=dataList.get(i)?.location?.longitude!!
                     }
                     else {
                         dataList.get(i)?.endPlaceCheck = true
-                        dataListener.onEnd(dataList.get(i)?.placeName)
+                        dataListener.onEnd(dataList.get(i))
                     }
                 }
                 else {

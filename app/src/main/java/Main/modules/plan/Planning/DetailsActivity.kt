@@ -3,6 +3,7 @@ package modules.Planning
 
 import Main.Model.response.*
 import Main.extras.ImageSetter
+import Main.extras.Location
 import Main.modules.plan.Trips.ClickListener
 import Main.modules.plan.Trips.FragmentInteraction
 import android.content.Intent
@@ -83,7 +84,7 @@ class DetailsActivity : ParentActivity(), ClickListener , FragmentInteraction {
     private fun makingUpLayout() {
         ImageSetter.set(this,placesObject?.bgImage!!,groundImage,null)
         destinationNameGround.text = placesObject?.placeName
-        destinationAddressGround.text = placesObject?.location?.address
+        destinationAddressGround.text = Location.getCityName(this,placesObject?.location?.latitude!!,placesObject?.location?.longitude!!)
     }
 
     private fun initializeLayoutView() {
@@ -176,7 +177,8 @@ class DetailsActivity : ParentActivity(), ClickListener , FragmentInteraction {
             }
             hotelsAdapter.swap(finalList as ArrayList<HotelData>)
         }
-        else {
+        else
+        {
             var finalList = data?.filter { it.hotelCityName == placesObject?.placeName }
             if(finalList?.isEmpty() as Boolean || finalList.size==0){
                 finalList = data?.filter { it.hotelCityName == placesObject?.nearBy }
@@ -184,7 +186,6 @@ class DetailsActivity : ParentActivity(), ClickListener , FragmentInteraction {
             finalList = finalList?.filter { it.category == hotelSortBy }
             hotelsAdapter.swap(finalList as ArrayList<HotelData>)
         }
-
     }
 
     private var hotelData : HotelData? = null

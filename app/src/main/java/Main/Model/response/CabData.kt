@@ -14,5 +14,5 @@ class CabData : Serializable {
     var cabPrice : Int ? = null
     var cabDiscount : Int ? = null
     var cabCategory : String ? = null
-    var checkEnabled : Boolean ? = null
+    var checkEnabled : Boolean = false
 }

@@ -15,14 +15,14 @@ class HotelData : Serializable{
     var emailAddress : String ? = null
     var website : String ? = null
     var description : String ? = null
-    var location : Location? = null
+    var location = Location()
     var hotelPrice : Int ? = null
     var checkEnabled : Boolean = false
     var category : String ? = null
 
-    inner class Location : Serializable {
-        var address : String ? = null
-        var latitude : Double ? = null
-        var longitude : Double ? = null
-    }
+}
+class Location : Serializable {
+    var address : String ? = null
+    var latitude : Double ? = null
+    var longitude : Double ? = null
 }

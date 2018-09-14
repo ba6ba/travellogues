@@ -14,10 +14,11 @@ class TripPlanning : Serializable{
     var places : ArrayList<PlacesData> ? =null
     var hotel : HotelData ? =null
     var restaurant : RestaurantData ? =null
-    var startPlace : String = ""
-    var endPlace : String = ""
+    var startPlace : PlacesData ? = null
+    var endPlace : PlacesData ? = null
     var cab : CabData ? =null
     var districts : ArrayList<String> ? =null
     var noOfDays : Int ? = null
     var preference : String ? = null
+    var noOfGuests : Int ? = null
 }

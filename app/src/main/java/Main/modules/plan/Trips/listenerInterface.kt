@@ -12,8 +12,8 @@ interface PlacesRecyclerViewClickListener {
 
 interface StartAndEndListener {
 
-    fun onStart(name : String?)
-    fun onEnd(name : String?)
+    fun onStart(data: PlacesData?)
+    fun onEnd(data: PlacesData?)
 
 }
 

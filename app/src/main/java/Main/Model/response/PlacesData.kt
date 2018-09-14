@@ -12,18 +12,20 @@ class PlacesData  : Serializable{
     var rating : Float ? = null
     var description : String ? = null
     var attractions : String ? = null
-    var location : Location? = null
+    var location = Location()
     var districtName : String ? = null
     var startPlaceCheck : Boolean = false
     var hotel : HotelData ? = null
     var restaurantName : String ? = null
     var endPlaceCheck : Boolean = false
     var checkEnabled : Boolean ? = null
-    var nearBy : String =""
+    var nearBy : String ? = null
+    var stayTime : Double ? = null
 
-    inner class Location : Serializable {
+    class Location : Serializable {
         var address : String ? = null
         var latitude : Double ? = null
         var longitude : Double ? = null
     }
 }
+
