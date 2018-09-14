@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">final-year-project</string>
+    <string name="app_name">Travellogues</string>
     <string name="no_internet_connection">No Internet Connection</string>
     <string name="some_went_wrong">There\'s Something Wrong.</string>
     <string name="home_tab">Home</string>
@@ -28,7 +28,7 @@
     <string name="dummyDate">00</string>
     <string name="alphaDate">AUG 2018 \\n Wednesday</string>
     <string name="checkOut">Check Out</string>
-    <string name="guests">Guests</string>
+    <string name="guests">No of Guests</string>
     <string name="noOfGuests">99</string>
     <string name="rooms">Rooms</string>
     <string name="noOfRooms">10</string>
@@ -89,7 +89,6 @@
     <string name="start_chat">Start Chat</string>
     <string name="chat_desc">Help us to assist You !</string>
     <string name="chat_desc_text"><![CDATA[Ask us for finding a Destination, Hotel, Restaurant & more.]]></string>
-    <string name="adults">Adults</string>
     <string name="child">Children</string>
     <string name="plus">+</string>
     <string name="travelers_information">Travelers Information</string>
@@ -170,6 +169,28 @@
     <string name="any_query">Any Query?</string>
     <string name="how_may_i_help_you">Hello, how may i help you ?</string>
     <string name="ask_us_anything">Ask us anything, about Destination, Hotel</string>
+    <string name="select_your_region">Select your Region</string>
+    <string name="select_district_where_you_want_to_travel">Select District where you want to travel</string>
+    <string name="place">Place</string>
+    <string name="done">Done</string>
+    <string name="adults">Adults</string>
+    <string name="selected_places">Selected Places</string>
+    <string name="plan_trip">PLAN TRIP</string>
+    <string name="view">VIEW</string>
+    <string name="description">Description</string>
+    <string name="kms">700 kms</string>
+    <string name="fromLocation">from Current Location</string>
+    <string name="category">Category</string>
+    <string name="dummy_rating">4.3</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="dummy_ph_no">0900-7860100</string>
+    <string name="dummy_email">admin@travellogues.com</string>
+    <string name="select_room">Select Room</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="total_days">Total Days</string>
+    <string name="optional"><i>**optional</i></string>
+    <string name="luxury">Luxury</string>
+    <string name="economic">Economical</string>
 
 
 </resources>

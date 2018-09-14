@@ -16,10 +16,11 @@ class RestaurantData : Serializable {
     var location : Location? = null
     var restaurantCategory : String ? = null
     var restaurantPrice : Int ? = null
+    var checkEnabled : Boolean = false
 
     inner class Location : Serializable {
         var address : String ? = null
-        var latitude : String ? = null
-        var longitude : String ? = null
+        var latitude : Double ? = null
+        var longitude : Double ? = null
     }
 }

@@ -17,10 +17,12 @@ class HotelData : Serializable{
     var description : String ? = null
     var location : Location? = null
     var hotelPrice : Int ? = null
+    var checkEnabled : Boolean = false
+    var category : String ? = null
 
     inner class Location : Serializable {
         var address : String ? = null
-        var latitude : String ? = null
-        var longitude : String ? = null
+        var latitude : Double ? = null
+        var longitude : Double ? = null
     }
 }

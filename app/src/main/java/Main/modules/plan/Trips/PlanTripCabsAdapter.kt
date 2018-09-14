@@ -1,4 +1,4 @@
-package Main.modules.Trips
+package Main.modules.plan.Trips
 
 import Main.Model.response.CabData
 import Main.extras.ImageSetter
@@ -58,34 +58,36 @@ class PlanTripCabsAdapter(private val context : Context, private val dataList : 
             itemView.planTripCabPrice.text = (ApplicationConstants.PRICE).capitalize() +" "+data.cabPrice.toString() + ApplicationConstants.PER_DAY
             itemView.planTripCabDiscount.text = (ApplicationConstants.DISCOUNT).capitalize() +" "+ data.cabDiscount.toString() + context.getString(R.string.percent_symbol)
             setOnClickListener(position)
+
+            if(!data.checkEnabled!!){
+                itemView.cabsCheckId.setImageResource(R.drawable.ic_check_circle_black_24dp)
+            }
+            else {
+                itemView.cabsCheckId.setImageResource(R.drawable.ic_check_circle_accent_24dp)
+            }
         }
         private fun setOnClickListener(position: Int) {
             itemView.cabsCheckId.setTag(position)
             itemView.cabsCheckId.setOnClickListener {
                 val pos = it.getTag()
-                if(!checkBoxEnabled){
-                    enableCustomCheckBox(pos, position)
-                }
-                else {
-                    disableCustomCheckBox(pos, position)
-                }
+                check(pos as Int)
             }
         }
 
-        private fun disableCustomCheckBox(pos: Any?, position: Int) {
-            itemView.cabsCheckId.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            listener.onCabCardDeSelected(pos as Int,dataList.get(position)?.cabName!!)
-            checkBoxEnabled = false
+        private fun check(pos : Int){
+            for(i in 0 until dataList.size){
+                if(i==pos){
+                    dataList.get(i)?.checkEnabled = true
+                    listener.onCabCardSelected(pos as Int,dataList.get(position)?.cabName!!)
+                }
+                else {
+                    dataList.get(i)?.checkEnabled = false
+//                    listener.onCabCardDeSelected(pos as Int,dataList.get(position)?.cabName!!)
+                }
+            }
+            notifyDataSetChanged()
         }
-
-        private fun enableCustomCheckBox(pos: Any?, position: Int) {
-            itemView.cabsCheckId.setImageResource(R.drawable.ic_check_circle_accent_24dp)
-            listener.onCabCardSelected(pos as Int,dataList.get(position)?.cabName!!)
-            checkBoxEnabled = true
         }
-    }
-
-    private var checkBoxEnabled = false
 
     inner class EmptyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         fun clickListener(){

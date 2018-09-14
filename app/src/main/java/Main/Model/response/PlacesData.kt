@@ -13,10 +13,17 @@ class PlacesData  : Serializable{
     var description : String ? = null
     var attractions : String ? = null
     var location : Location? = null
+    var districtName : String ? = null
+    var startPlaceCheck : Boolean = false
+    var hotel : HotelData ? = null
+    var restaurantName : String ? = null
+    var endPlaceCheck : Boolean = false
+    var checkEnabled : Boolean ? = null
+    var nearBy : String =""
 
     inner class Location : Serializable {
         var address : String ? = null
-        var latitude : String ? = null
-        var longitude : String ? = null
+        var latitude : Double ? = null
+        var longitude : Double ? = null
     }
 }

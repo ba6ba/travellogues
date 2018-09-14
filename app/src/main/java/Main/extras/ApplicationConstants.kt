@@ -6,7 +6,8 @@ class ApplicationConstants {
 
         const val NETWORK_NOT_AVAILABLE = "Check your Internet Connection"
         const val REQUEST_LOCATION = 1
-        const val TOTAL_NUMBER_OF_TABS = 3
+        const val TOTAL_NUMBER_OF_MAIN_TABS = 3
+        const val TOTAL_NUMBER_OF_TRIP_TABS = 2
         const val ICONS = "ICONS"
         const val PROPERTIES = "PROPERTIES"
         const val FLIGHTS = "FLIGHTS"
@@ -36,15 +37,20 @@ class ApplicationConstants {
         const val TOOLBAR_TITLE = "TOOLBAR TITLE"
         const val SLIDE_ITEM_ID = "SLIDE_ITEM_ID"
         const val HOTEL_OBJECT_KEY= "HOTEL_OBJECT_KEY"
+        const val RESTAURANT_OBJECT_KEY= "RESTAURANT_OBJECT_KEY"
+        const val DETAILS_OBJECT_KEY= "DETAILS_OBJECT_KEY"
+        const val OBJECT_KEY= "OBJECT_KEY"
         const val PLACES_OBJECT_KEY = "PLACES_OBJECT_KEY"
         const val DATE_FORMAT = "EEE, d MMM yyyy" //In which you need put here
+        const val DETAILS_ACTIVITY_REQUEST_CODE = 9999
+        const val ACTIVITY_REQUEST_CODE = 9009
 
         //
         const val CHAT_SCREEN_ICON = "https://preview.ibb.co/ikTAxe/chat_screen_bg.jpg"
         const val CARDS_LOGO = "https://preview.ibb.co/mPRJJK/visa_master_card.png"
         const val PRICE = "PRICE"
         const val LUXURY = "Luxury"
-        const val ECONOMIC = "Economic"
+        const val ECONOMIC = "Economical"
         const val RESTAURANTS= "RESTAURANTS"
         const val NO_INTERNET_CONNECTION = "https://image.ibb.co/fJyO09/no_internet.png"
         const val DISCOUNT = "DISCOUNT"
@@ -64,5 +70,15 @@ class ApplicationConstants {
         const val MAIN_BANNER_IMAGE_10 = "https://image.ibb.co/g77xxp/10.jpg"
 
         const val TRIP_DIALOG_BANNER = "https://image.ibb.co/gErCL9/pla_trip.jpg"
+        const val KMS = " kms"
+        const val PKR = " PKR"
+        const val GUESTS = "GUESTS"
+        const val TOTAL_DAYS = "TOTAL DAYS : "
+        const val MINUTES = " minutes"
+        const val HOURS = " hours "
+        const val LOCAL_TRAVELLING_SPEED = 19.44
+        const val CITY_TRAVELLING_SPEED = 11.11
+        const val TRIP_OBJECT_KEY = "TRIP OBJECT KEY"
     }
+
 }

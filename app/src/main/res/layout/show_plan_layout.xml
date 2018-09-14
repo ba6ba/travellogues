@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratregular"
+        android:textAppearance="@style/DarkTextAppearanceSmall"
+        android:textColor="@color/black"
+        android:textSize="@dimen/small_text_size"
+        android:text="@string/select_district_where_you_want_to_travel"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <TextView
+            android:id="@+id/cabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratregular"
+            android:textAppearance="@style/DarkTextAppearanceSmall"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_text_size"
+            android:text="Cab recommended for your trip"
+            android:layout_marginHorizontal="@dimen/small_margin"
+            android:layout_marginVertical="@dimen/small_margin"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recCabsRecyclerview"
+            android:layout_below="@id/cabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:visibility="visible"
+            android:layout_marginVertical="@dimen/small_margin"
+            >
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+</RelativeLayout>

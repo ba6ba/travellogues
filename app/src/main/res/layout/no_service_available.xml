@@ -19,18 +19,20 @@
         android:layout_centerHorizontal="true"
         />
 
-    <Button
+    <ImageButton
         android:id="@+id/okButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/LightTextAppearanceSmall"
-        android:textColor="@color/white_color"
         android:layout_marginHorizontal="@dimen/large_margin"
-        android:background="@drawable/payment_button_bg"
         android:layout_marginBottom="@dimen/normal_margin"
         android:layout_below="@id/textView"
-        android:text="@string/ok"
+        android:background="@drawable/done_button"
+        android:src="@drawable/back_icon_blue"
+        android:padding="@dimen/small_margin"
         android:visibility="visible"
+        android:rotation="180"
+        android:elevation="20dp"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>

@@ -16,6 +16,7 @@ class ApiEndPoints {
         const val RESTAURANTS = "/restaurants"
         const val CABS = "/cabs"
         const val TRAVELLER_INFO = "/travellerInfo"
+        const val ALL_DISTRICTS = "/alldistricts"
 
     }
 }

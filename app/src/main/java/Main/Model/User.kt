@@ -10,11 +10,9 @@ class User {
     var longitude : Double ? = null
     var emailAddress : String ? = null
     var travellingCategory : String ? = null
-
-
-    fun setLatitude(latitude: Double): User {
-        this.latitude = latitude
-        return this
-    }
+    var address : String ? = null
+    var countryName : String ? = null
+    var cityName : String ? = null
+    var trips : ArrayList<TripPlanning> ? = null
 
 }

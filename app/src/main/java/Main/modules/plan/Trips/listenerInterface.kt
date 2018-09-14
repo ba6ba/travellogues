@@ -1,12 +1,31 @@
-package Main.modules.Trips
+package Main.modules.plan.Trips
 
 import Main.Model.response.HotelData
+import Main.Model.response.PlacesData
 import Main.Model.response.RestaurantData
 
 interface PlacesRecyclerViewClickListener {
 
-    fun onPlaceCardSelected(position : Int, selection : String)
-    fun onPlaceCardDeSelected(position : Int, selection : String)
+    fun onPlaceCardSelected(startPlace : String?, endPlace : String?)
+    fun onPlaceCardDeSelected(startPlace : String?, endPlace : String?)
+}
+
+interface StartAndEndListener {
+
+    fun onStart(name : String?)
+    fun onEnd(name : String?)
+
+}
+
+interface PlacesListener {
+
+    fun onSelected(iD : Int, vararg selection: String) : Boolean
+    fun onDeSelected(iD : Int) : Boolean
+    fun onRemove(position : Int)
+}
+
+interface FragmentInteraction{
+    fun onAttach(placesBundle: PlacesData?, hotelBundle: HotelData?,restBundle: RestaurantData?,position: Int)
 }
 
 interface HotelRecyclerViewClickListener {
@@ -16,9 +35,7 @@ interface HotelRecyclerViewClickListener {
 }
 
 interface CabRecyclerViewClickListener {
-
     fun onCabCardSelected(position : Int, selection : String)
-    fun onCabCardDeSelected(position : Int, selection : String)
 }
 
 interface RestaurantRecyclerViewClickListener {
@@ -31,4 +48,10 @@ interface ClickListener {
 
     fun onCardSelected(position : Int, indicator : String, hotelObj : HotelData?, restaurantObj: RestaurantData?)
     fun onCardDeSelected(position : Int, indicator : String)
+}
+
+interface AdapterListener {
+
+    fun callBackOnSelect()
+    fun callBackOnDeSelect()
 }

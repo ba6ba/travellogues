@@ -4,6 +4,7 @@ import android.support.design.widget.TextInputLayout
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.TextView
 import com.example.sarwan.final_year_project.R
 
 
@@ -94,8 +95,37 @@ class ValidationUtility{
             }
         }
 
+        fun removeErrors(vararg mEditText: EditText) {
+            for (EditText in mEditText) {
+                EditText.addTextChangedListener(object : TextWatcher {
+                    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+                    }
+
+                    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                        EditText.setError(null)
+                    }
+
+                    override fun afterTextChanged(s: Editable) {
+                    }
+                })
+            }
+        }
+
+        fun removeErrors(vararg textView: TextView) {
+            for (mTextView in textView) {
+                mTextView.error = null
+            }
+        }
+
         fun setError(mTextLayout: TextInputLayout , error: String){
             mTextLayout.error = error
+        }
+
+        fun setEditTextError(error: String , vararg mEditText: EditText){
+            for (EditText in mEditText) {
+                EditText.error = error
+            }
         }
 
         fun appendAtRunTime(mTextLayout: TextInputLayout,toAppend : String,afterIndex : Int) {

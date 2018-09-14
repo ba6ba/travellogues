@@ -2,6 +2,7 @@ package extras
 
 import Main.Model.response.OffersData
 import Main.Model.response.PropertiesData
+import Main.extras.ImageSetter
 import android.annotation.TargetApi
 import android.app.Activity
 import android.app.Dialog
@@ -35,6 +36,29 @@ open class AlertDialog{
         dialog.setCanceledOnTouchOutside(false)
         dialog.show()
 
+    }
+
+    fun filterBuilder(context: Context) : String{
+
+        var toReturn = String()
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.filter_layout)
+        // set the custom dialog components - text, image and button
+        val luxury = dialog.findViewById<TextView>(R.id.luxury)
+        val economic = dialog.findViewById<TextView>(R.id.economic)
+        // if button is clicked, close the custom dialog
+        luxury.setOnClickListener {
+            toReturn =  "Luxury"
+            dialog.dismiss()
+        }
+
+        economic.setOnClickListener {
+            toReturn = "Economical"
+            dialog.dismiss()
+        }
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.show()
+        return toReturn
     }
 
     fun offerDialog(context: Context, offer: OffersData?, cardBackgroundArrayIndex: Int){
@@ -104,5 +128,37 @@ open class AlertDialog{
 
     }
 
+    fun roomBuilder(context: Activity, headerImage : String, adults : String? , childs : String?) : String
+    {
+        var room = "None"
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.select_room_dialog)
+        // set the custom dialog components - text, image and button
+        ImageSetter.set(context,headerImage,(dialog.findViewById<ImageView>(R.id.headerImage)),null)
+        (dialog.findViewById<TextView>(R.id.adultsQty)).text = adults
+        (dialog.findViewById<TextView>(R.id.childsQty)).text = childs
+        (dialog.findViewById<ImageView>(R.id.deluxeCheck)).setOnClickListener {
+            room =  "Deluxe Room"
+            (dialog.findViewById<ImageView>(R.id.deluxeCheck)).setBackgroundResource(R.color.darkGrey)
+            dialog.dismiss()
+        }
+
+        (dialog.findViewById<ImageView>(R.id.luxuryCheck)).setOnClickListener {
+            room =  "Luxury Room"
+            (dialog.findViewById<ImageView>(R.id.luxuryCheck)).setBackgroundResource(R.color.darkGrey)
+            dialog.dismiss()
+        }
+
+        (dialog.findViewById<ImageView>(R.id.economicalCheck)).setOnClickListener {
+            room =  "Economical Room"
+            (dialog.findViewById<ImageView>(R.id.economicalCheck)).setBackgroundResource(R.color.darkGrey)
+            dialog.dismiss()
+        }
+
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.show()
+
+        return room
+    }
 
 }

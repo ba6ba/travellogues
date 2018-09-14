@@ -2,7 +2,8 @@ package modules.destinations
 
 import Main.Model.response.*
 import Main.extras.ImageSetter
-import Main.modules.Trips.ClickListener
+import Main.modules.plan.Trips.ClickListener
+import Main.modules.plan.Trips.FragmentInteraction
 import android.content.Intent
 import android.support.v4.app.Fragment
 import android.os.Bundle
@@ -15,15 +16,27 @@ import com.example.sarwan.final_year_project.R
 import com.mobitribe.app.ezzerecharge.network.RestClient
 import extras.ApplicationConstants
 import kotlinx.android.synthetic.main.destination_fragment.*
-import modules.user.UserInformationActivity
+import modules.plan.HotelOrRestaurantDetailsActivity
 import retrofit2.Call
 import retrofit2.Response
 
-class DestinationFragment : Fragment(), ClickListener {
+class DestinationFragment : Fragment(), ClickListener,FragmentInteraction {
+    override fun onAttach(placesBundle: PlacesData?, hotelBundle: HotelData?, restBundle: RestaurantData?, position: Int) {
+        val intent = Intent()
+        if(hotelBundle!=null){
+            intent.putExtra(ApplicationConstants.HOTEL_OBJECT_KEY,hotelBundle)
+            intent.setClass(context, HotelOrRestaurantDetailsActivity::class.java)
+            this.startActivity(intent)
+        }
+        else if(restBundle!=null){
+            intent.putExtra(ApplicationConstants.RESTAURANT_OBJECT_KEY,restBundle)
+            intent.setClass(context, HotelOrRestaurantDetailsActivity::class.java)
+            this.startActivity(intent)
+        }
+    }
 
     private var pActivity : ParentActivity? = null
     private var placesObject : PlacesData? = null
-    private var keyToSearch : HashMap<String,String> ? = null
 
     private lateinit var HotelslayoutManager : LinearLayoutManager
     private lateinit var RestaurantlayoutManager : LinearLayoutManager
@@ -39,7 +52,6 @@ class DestinationFragment : Fragment(), ClickListener {
         pActivity = activity as ParentActivity
         val arguments = arguments
         placesObject = arguments?.getSerializable(ApplicationConstants.PLACES_OBJECT_KEY) as PlacesData
-        keyToSearch?.put(placesObject?.placeName!!,placesObject?.placeCountry!!)
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.destination_fragment, container, false)
@@ -57,11 +69,13 @@ class DestinationFragment : Fragment(), ClickListener {
         backButton.setOnClickListener {
             activity?.onBackPressed()
         }
-        destinationsFab.setOnClickListener {
-            activity?.startActivity(Intent(context,UserInformationActivity::class.java).
+        doneButton.setOnClickListener {
+            /*activity?.startActivity(Intent(context,UserInformationActivity::class.java).
                     putExtra(ApplicationConstants.RESTAURANTS,restaurantData).
                     putExtra(ApplicationConstants.HOTELS,hotelData))
-            activity?.finish()
+            activity?.finish()*/
+            activity?.supportFragmentManager?.beginTransaction()?.
+                    remove(this)?.commit()
         }
     }
 
@@ -72,15 +86,15 @@ class DestinationFragment : Fragment(), ClickListener {
     }
 
     private fun initializeLayoutView() {
-        destinationsFab.hide()
+        doneButton.isEnabled = false
 
         HotelslayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-        hotelsAdapter = SuggestionHotelsAdapter(context!!,hotelsDataList,this)
+        hotelsAdapter = SuggestionHotelsAdapter(context!!,hotelsDataList,this,this)
         nearHotelRecyclerview.layoutManager = HotelslayoutManager
         nearHotelRecyclerview.adapter = hotelsAdapter
 
         RestaurantlayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
-        restaurantsAdapter = SuggestionRestaurantsAdapter(context!!,restaurantDataList,this)
+        restaurantsAdapter = SuggestionRestaurantsAdapter(context!!,restaurantDataList,this,this)
         nearRestaurantRecyclerview.layoutManager = RestaurantlayoutManager
         nearRestaurantRecyclerview.adapter = restaurantsAdapter
     }
@@ -160,12 +174,12 @@ class DestinationFragment : Fragment(), ClickListener {
 
         }
         if(restaurantData!=null && hotelData !=null){
-            destinationsFab.show()
+            doneButton.isEnabled = true
         }
     }
 
     override fun onCardDeSelected(position: Int,indicator : String) {
-        destinationsFab.hide()
+        doneButton.isEnabled = false
     }
 
 

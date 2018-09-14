@@ -4,13 +4,11 @@ import Main.Model.response.HotelData
 import Main.base.NoInternetFragment
 import Main.extras.ImageSetter
 import Main.extras.RandomColors
-import Main.modules.Trips.PlanTripPlacesAdapter
 import Main.utils.DateTimeUtility
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout

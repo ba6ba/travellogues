@@ -1,176 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<RelativeLayout android:layout_width="300dp"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
-    android:layout_height="220dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/white_color"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="@dimen/greater_elevation"
-    app:cardMaxElevation="@dimen/greater_elevation"
-    app:cardPreventCornerOverlap="true"
-    android:animateLayoutChanges="true"
-    android:clickable="true"
-    android:focusableInTouchMode="true"
-    android:focusable="true"
+    android:background="@color/white"
+    android:layout_gravity="center"
     android:layout_margin="@dimen/very_small_margin"
-    android:id="@+id/card">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white_color"
-        android:animateLayoutChanges="true"
-        >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/imageLayout"
-        >
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mainImage"
-        android:scaleType="centerCrop"
+    >
+    <ImageButton
+        android:id="@+id/removeButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_cancel_black_24dp"
+        android:padding="@dimen/small_margin"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:layout_margin="@dimen/very_small_margin"
         />
-
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:background="@drawable/tag_background"
-            android:gravity="center"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            >
-
-            <TextView
-                android:id="@+id/tag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white_color"
-                android:textSize="@dimen/text_size_16"
-                android:fontFamily="@font/titilliumwebregular"
-                android:lineSpacingExtra="-2dp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:maxLines="1"
-                android:layout_gravity="center"
-                android:textAllCaps="true"
-                android:gravity="center"
-                android:ellipsize="end"
-                android:text="@string/New"
-                />
-
-        </LinearLayout>
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardBackgroundColor="@color/white_color"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/greater_elevation"
+        app:cardMaxElevation="@dimen/greater_elevation"
+        app:cardPreventCornerOverlap="true"
+        android:animateLayoutChanges="true"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/card"
+        android:layout_margin="@dimen/very_v_small_margin"
+        >
 
         <RelativeLayout
-            android:id="@+id/priceTagLayout"
-            android:layout_width="40dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="@dimen/small_margin"
+            android:background="@color/white_color"
+            android:animateLayoutChanges="true"
             >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="95dp"
-                android:background="@drawable/price_tag_background"
-                android:layout_centerInParent="true"
-                android:layout_alignParentTop="true"
-                android:elevation="@dimen/greater_elevation"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageLayout"
+            >
 
-                >
-            <TextView
-                android:id="@+id/priceTag"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:textColor="@color/dark_gray"
-                android:textSize="@dimen/small_text_size"
-                android:fontFamily="@font/titilliumwebregular"
-                android:textStyle="bold"
-                android:textAlignment="textStart"
-                android:gravity="center"
-                android:lineSpacingExtra="-6dp"
-                android:textAllCaps="false"
-                android:text="@string/price"
-                android:rotation="-90"
-                />
-            </LinearLayout>
-            <ImageView
-                android:layout_width="30dp"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mainImage"
+            android:scaleType="centerCrop"
+            android:background="@color/lightestGrey"
+            />
+
+            <LinearLayout
+                android:layout_width="80dp"
                 android:layout_height="30dp"
+                android:background="@drawable/tag_background"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                >
+
+                <TextView
+                    android:id="@+id/tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/text_size_16"
+                    android:fontFamily="@font/titilliumwebregular"
+                    android:lineSpacingExtra="-2dp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:maxLines="1"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:text="@string/New"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:id="@+id/favourite"
-                android:layout_alignParentBottom="true"
                 android:background="@drawable/favourite_bg"
                 android:backgroundTintMode="screen"
                 android:backgroundTint="@color/transparent"
                 android:src="@drawable/ic_favorite_border_black_24dp"
-                android:padding="@dimen/very_small_margin"
+                android:padding="@dimen/small_margin"
+                android:layout_margin="@dimen/very_small_margin"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                />
+
+            <RelativeLayout
+                android:id="@+id/priceTagLayout"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/small_margin"
-                android:layout_centerHorizontal="true"
+                android:elevation="@dimen/greater_elevation"
+                android:background="@drawable/price_tag_background"
+                >
+                <TextView
+                    android:id="@+id/priceTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/small_text_size"
+                    android:fontFamily="@font/titilliumwebregular"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:lineSpacingExtra="-6dp"
+                    android:textAllCaps="false"
+                    android:text="@string/price"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/small_margin"
+            android:layout_marginVertical="@dimen/small_margin"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/imageLayout"
+            >
+        <TextView
+            android:id="@+id/planTripPlaceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium_text_size"
+            android:fontFamily="@font/titilliumwebregular"
+            android:textAllCaps="false"
+            android:lineSpacingExtra="-2dp"
+            android:textStyle="bold"
+            android:textAlignment="textStart"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_alignParentStart="true"
+            />
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/planTripRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="@dimen/small_rating_stars_size"
+            android:soundEffectsEnabled="true"
+            android:theme="@style/RatingBar"
+            app:srb_numberOfStars="5"
+            app:srb_isIndicator="true"
+            app:srb_rating="5"
+            app:srb_starsSeparation="2dp"
+            app:srb_stepSize="1.0"
+            app:srb_pressedFillColor="@color/lightGrey"
+            app:srb_pressedBorderColor="@color/lightGrey"
+            app:srb_borderColor="@color/bronzeBlueScreen"
+            app:srb_fillColor="@color/bronzeBlue"
+            android:layout_below="@id/planTripPlaceName"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/very_v_small_margin"
+            />
+
+
+            <ImageView
+                android:id="@+id/checkId"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_check_circle_black_24dp"
+                android:backgroundTint="@color/lightGrey"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 />
         </RelativeLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/small_margin"
-        android:layout_marginBottom="@dimen/small_margin"
-        android:layout_alignParentBottom="true"
-        >
-    <TextView
-        android:id="@+id/planTripPlaceName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="@dimen/medium_text_size"
-        android:fontFamily="@font/titilliumwebregular"
-        android:textAllCaps="false"
-        android:lineSpacingExtra="-2dp"
-        android:textStyle="bold"
-        android:textAlignment="textStart"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:layout_alignParentStart="true"
-        />
-
-    <com.iarcuschin.simpleratingbar.SimpleRatingBar
-        android:id="@+id/planTripRatingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srb_starSize="@dimen/small_rating_stars_size"
-        android:soundEffectsEnabled="true"
-        android:theme="@style/RatingBar"
-        app:srb_numberOfStars="5"
-        app:srb_isIndicator="true"
-        app:srb_rating="5"
-        app:srb_starsSeparation="2dp"
-        app:srb_stepSize="1.0"
-        app:srb_pressedFillColor="@color/lightGrey"
-        app:srb_pressedBorderColor="@color/lightGrey"
-        app:srb_borderColor="@color/bronzeBlueScreen"
-        app:srb_fillColor="@color/bronzeBlue"
-        android:layout_below="@id/planTripPlaceName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/very_v_small_margin"
-        />
-
-
-        <ImageView
-            android:id="@+id/checkId"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/ic_check_circle_black_24dp"
-            android:backgroundTint="@color/lightGrey"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
-            />
-    </RelativeLayout>
-
-    </RelativeLayout>
-</android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

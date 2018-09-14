@@ -1,4 +1,4 @@
-package Main.modules.Trips
+package Main.modules.plan.Trips
 
 import Main.Model.response.HotelData
 import Main.extras.ImageSetter

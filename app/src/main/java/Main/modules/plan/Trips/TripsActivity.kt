@@ -1,7 +1,7 @@
 package modules.Profile
 
 import Main.Model.response.*
-import Main.modules.Trips.*
+import Main.modules.plan.Trips.*
 import android.annotation.TargetApi
 import android.icu.text.SimpleDateFormat
 import android.os.Build
@@ -33,7 +33,7 @@ import modules.user.UserInformationActivity
 
 
 @TargetApi(Build.VERSION_CODES.N)
-class TripsActivity : Fragment(), PlacesRecyclerViewClickListener,SwipeRefreshLayout.OnRefreshListener,
+class TripsActivity : Fragment(), PlacesListener,SwipeRefreshLayout.OnRefreshListener,
         HotelRecyclerViewClickListener,RestaurantRecyclerViewClickListener,CabRecyclerViewClickListener{
 
     private lateinit var PlaceslayoutManager : LinearLayoutManager
@@ -65,11 +65,9 @@ class TripsActivity : Fragment(), PlacesRecyclerViewClickListener,SwipeRefreshLa
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        alertDialog.tripDialog(context!!)
         disableFab()
         swipeRefreshLayout.setOnRefreshListener(this)
         swipeRefreshLayout.isRefreshing = true
-        setToolbar()
         initializeLayoutView()
         fetchApiData()
         calendarBuilder()
@@ -84,9 +82,6 @@ class TripsActivity : Fragment(), PlacesRecyclerViewClickListener,SwipeRefreshLa
     private fun clickListeners() {
         fab.setOnClickListener {
             startActivity(Intent(context!!,UserInformationActivity::class.java).putExtra(ApplicationConstants.PRICE,getPrice()))
-        }
-        profileMenu.setOnClickListener {
-            startActivity(Intent(context!!,ProfileActivity::class.java))
         }
     }
 
@@ -163,12 +158,6 @@ class TripsActivity : Fragment(), PlacesRecyclerViewClickListener,SwipeRefreshLa
 
     private fun fetchApiData() {
         fetchPlaces()
-    }
-
-
-    private fun setToolbar() {
-        pActivity?.setSupportActionBar(tripToolbar)
-//        pActivity?.supportActionBar?.setTitle(getString(R.string.plan_my_trip))
     }
 
 
@@ -250,14 +239,21 @@ class TripsActivity : Fragment(), PlacesRecyclerViewClickListener,SwipeRefreshLa
     }
     private var hotelPriceValueIndex : Int ? = null
 
-    override fun onPlaceCardSelected(position: Int, selection: String) {
-        routeField.append(selection)
+
+    override fun onSelected(iD: Int, vararg selection: String) : Boolean{
+        routeField.append(selection.get(0).toString())
         fabEnabled = true
+        return true
     }
-    override fun onPlaceCardDeSelected(position: Int, selection: String)
-    {
+
+    override fun onDeSelected(iD: Int) : Boolean{
         routeField.text = ""
         fabEnabled = false
+        return true
+    }
+
+    override fun onRemove(position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onHotelCardSelected(position: Int, selection: String) {
@@ -382,8 +378,6 @@ class TripsActivity : Fragment(), PlacesRecyclerViewClickListener,SwipeRefreshLa
         cabPriceValueIndex = position
     }
 
-    override fun onCabCardDeSelected(position: Int, selection: String) {
-    }
     private var fabEnabled  = false
     fun stopRefreshLoader(){
         swipeRefreshLayout.isRefreshing = false

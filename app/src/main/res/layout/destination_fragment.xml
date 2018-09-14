@@ -17,12 +17,12 @@
         >
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/back_icon"
-            android:backgroundTint="@color/progressLoaderScreen"
-            android:layout_marginStart="@dimen/normal_margin"
-            android:layout_marginTop="@dimen/normal_margin"
+            android:backgroundTint="@color/black"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/small_margin"
             android:scaleType="centerCrop"
             android:id="@+id/backButton"
             />
@@ -34,6 +34,7 @@
         android:requiresFadingEdge="horizontal"
         android:layout_marginStart="@dimen/normal_margin"
         android:elevation="@dimen/greater_elevation"
+        android:layout_toRightOf="@id/backButton"
         >
 
 
@@ -65,7 +66,7 @@
         android:textSize="@dimen/large_text_size"
         android:fontFamily="@font/titilliumwebregular"
         android:text="@string/checkIn"
-        android:layout_marginTop="@dimen/normal_margin"
+        android:layout_marginTop="@dimen/very_small_margin"
         android:textAllCaps="false"
         android:layout_marginStart="@dimen/normal_margin"
         android:lineSpacingExtra="-2dp"
@@ -82,7 +83,6 @@
         android:textColor="@color/black"
         android:textSize="@dimen/normal_text_size"
         android:fontFamily="@font/titilliumwebextralight"
-        android:layout_marginTop="@dimen/small_margin"
         android:textAllCaps="false"
         android:layout_marginStart="@dimen/normal_margin"
         android:lineSpacingExtra="-2dp"
@@ -102,15 +102,31 @@
         android:layout_marginHorizontal="@dimen/small_margin"
         android:layout_below="@id/destinationAddressGround"
         >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/very_small_margin"
+            >
         <TextView
             android:id="@+id/nearHotel"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/near_hotels"
             android:textAppearance="@style/DarkTextAppearanceMedium"
-            android:drawableEnd="@drawable/indicator_bg_dest"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             />
-
+            <ImageView
+                android:id="@+id/filterHotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_filter_list_black_24dp"
+                />
+        </RelativeLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/nearHotelRecyclerview"
             android:layout_width="match_parent"
@@ -131,14 +147,31 @@
         android:layout_marginHorizontal="@dimen/small_margin"
         android:layout_below="@id/nearHotelsLayout"
         >
-        <TextView
-            android:id="@+id/nearRestaurant"
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/near_restaurant"
-            android:textAppearance="@style/DarkTextAppearanceMedium"
-            android:drawableEnd="@drawable/indicator_bg_dest"
-            />
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/very_small_margin"
+            >
+            <TextView
+                android:id="@+id/nearRestaurant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/near_restaurant"
+                android:textAppearance="@style/DarkTextAppearanceMedium"
+                android:drawableEnd="@drawable/indicator_bg_dest"
+                android:layout_centerVertical="true"
+                />
+            <ImageView
+                android:id="@+id/filterRes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_filter_list_black_24dp"
+                />
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/nearRestaurantRecyclerview"
@@ -150,18 +183,20 @@
         </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/destinationsFab"
-        style="@style/FabMargin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@color/darkGrey"
-        android:padding="@dimen/very_small_margin"
-        android:src="@drawable/ic_beenhere_black_24dp"
-        app:borderWidth="2dp"
-        />
+        <Button
+            android:id="@+id/doneButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/done_button_horizontal"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/titilliumwebregular"
+            android:textStyle="bold"
+            android:layout_marginStart="250dp"
+            android:text="@string/done"
+            android:layout_below="@id/nearRestaurantsLayout"
+            android:elevation="@dimen/normal_margin"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            />
     </RelativeLayout>
 </ScrollView>

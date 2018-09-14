@@ -24,4 +24,8 @@ interface WebServices {
 
     @POST(NetworkConstants.API_PUBLIC+NetworkConstants.API_VERSION+ApiEndPoints.TRAVELLER_INFO)
     fun postTravellerInfo(@Body travellerBody : TravellerBody): Call<TravellerInfoResponse>
+
+    @GET(NetworkConstants.API_PUBLIC+NetworkConstants.API_VERSION+ApiEndPoints.ALL_DISTRICTS)
+    fun getAllDistricts(): Call<AllDistrictsResponse>
 }
+

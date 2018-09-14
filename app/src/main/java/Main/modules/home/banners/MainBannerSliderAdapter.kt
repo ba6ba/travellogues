@@ -15,6 +15,7 @@ class MainBannerSliderAdapter(internal var context: Context,internal var count :
 
     override fun isViewFromObject(view: View, obj: Any): Boolean {
         return view === obj as RelativeLayout
+
     }
 
     override fun getCount(): Int {
@@ -23,7 +24,7 @@ class MainBannerSliderAdapter(internal var context: Context,internal var count :
 
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        layoutInflater = (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
         val view = layoutInflater?.inflate(R.layout.banner_slider, container, false)
         container.addView(view)
         return view!!

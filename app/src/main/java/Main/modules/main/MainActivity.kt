@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import com.example.sarwan.final_year_project.R
 import extras.AlertDialog
 import extras.ApplicationConstants
@@ -44,15 +45,6 @@ class MainActivity : MainBaseActivity()
 
         override fun onCreateOptionsMenu(menu: Menu):Boolean {
             super.onCreateOptionsMenu(menu)
-
-            /*val inflater = menuInflater
-            inflater.inflate(R.menu.options_menu, menu)
-            val profile = menu.findItem(R.id.profile)
-            profile.setOnMenuItemClickListener {
-                startActivity(Intent(this, ProfileActivity::class.java))
-                true
-            }
-            profile.isEnabled = true*/
             return true
 
         }
@@ -72,5 +64,9 @@ class MainActivity : MainBaseActivity()
     }
      fun showNoInternetFrame() {
         supportFragmentManager.beginTransaction().add(R.id.noInternetLayout, NoInternetFragment()).addToBackStack(null).commit()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

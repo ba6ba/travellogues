@@ -5,20 +5,13 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.*
 import android.support.v4.app.ActivityCompat
-import android.util.Log
 import base.ParentActivity
-import com.google.android.gms.tasks.OnCompleteListener
-import com.mobitribe.app.ezzerecharge.network.RestClient
 import extras.ApplicationConstants
-import network.ApiEndPoints
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import utils.HashUtility
+import android.location.Geocoder
+import java.util.*
 
 
-open class MainBaseActivity : ParentActivity(){
-
+open class MainBaseActivity : ParentActivity() {
 
     protected var ChildActivity: MainActivity? = null
     private val TAG = "Main Activity"
@@ -33,13 +26,21 @@ open class MainBaseActivity : ParentActivity(){
         } else {
             val location = locationManager?.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
             if (location != null) {
+                val addresses = getAddress(location.latitude,location.longitude)
                 profile?.latitude = location.latitude
                 profile?.longitude = location.longitude
+                profile?.address = addresses[0].getAddressLine(0)
+                profile?.cityName= addresses.get(0).getLocality()
+                profile?.countryName = addresses[0].getAddressLine(2)
                 saveProfileInSharedPreference()
             }
         }
     }
 
+    private fun getAddress(lat : Double, lon : Double) : MutableList<Address>{
+        val geocoder = Geocoder(this, Locale.getDefault())
+        return geocoder.getFromLocation(lat, lon, 1)
+    }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -49,5 +50,4 @@ open class MainBaseActivity : ParentActivity(){
             }
         }
     }
-
 }

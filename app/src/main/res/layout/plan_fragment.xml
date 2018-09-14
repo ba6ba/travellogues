@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_color"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tripToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_fragments_toolbar_height"
+        app:titleTextAppearance="@style/DarkTextAppearance"
+        android:elevation="@dimen/normal_margin"
+        android:background="@drawable/round_reverse"
+        android:gravity="center"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/plan_my_trip"
+                android:textSize="@dimen/medium_text_size"
+                android:gravity="center"
+                android:textAppearance="@style/DarkTextAppearanceMedium"
+                android:layout_centerInParent="true"
+                />
+
+            <ImageView
+                android:id="@+id/profileMenu"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_fingerprint_black_24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/medium_margin"
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_below="@id/tripToolbar"
+
+        >
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            app:tabBackground="@drawable/round"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:tabGravity="center"
+            android:layout_gravity="top"
+            app:tabTextAppearance="@style/TabTextApperance"
+            android:background="@color/white_color"
+            app:tabTextColor="@color/black"
+            app:tabIndicatorColor="@color/dark_gray"
+            app:tabIndicatorHeight="3dp"
+            app:tabRippleColor="@color/lightGrey"
+            >
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tab_item_bg"
+                android:text="SINGLE DESTINAION"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                />
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tab_item_bg"
+                android:text="MULTIPLE DESTINAIONS"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                />
+
+        </android.support.design.widget.TabLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tripViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        </LinearLayout>
+
+</RelativeLayout>

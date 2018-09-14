@@ -8,40 +8,6 @@
     android:animateLayoutChanges="true"
     >
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tripToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/search_fragments_toolbar_height"
-        app:titleTextAppearance="@style/DarkTextAppearance"
-        android:elevation="@dimen/normal_margin"
-        android:background="@drawable/round_reverse"
-        android:gravity="center"
-        >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/toolbarTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/plan_my_trip"
-            android:textSize="@dimen/medium_text_size"
-            android:gravity="center"
-            android:textAppearance="@style/DarkTextAppearanceMedium"
-            android:layout_centerInParent="true"
-            />
-
-        <ImageView
-            android:id="@+id/profileMenu"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/ic_fingerprint_black_24dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/medium_margin"
-            />
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"

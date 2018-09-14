@@ -6,7 +6,7 @@
     <color name="progressLoader">#FF7650</color>
     <color name="progressLoaderScreen">#cc2e02</color>
     <color name="white_color">#FFFFFF</color>
-    <color name="transparent">#7affffff</color>
+    <color name="transparent">#9dffffff</color>
     <color name="transparent_black">#c3000000</color>
     <color name="transparent226">#e2ffffff</color>
     <color name="darkGrey">#414141</color>
@@ -16,7 +16,7 @@
     <color name="colorAccentScreen">#c2f9ee</color>
     <color name="parrotGreen">#61f44e</color>
     <color name="babyPink">#ff4690</color>
-    ]<color name="bronzeBlue">#1018f2</color>
+    <color name="bronzeBlue">#1018f2</color>
     <color name="bronzeBlueScreen">#6f74ff</color>
     <color name="darkMagentaScreen">#ff2983</color>
     <color name="darkMagenta">#c70a59</color>
