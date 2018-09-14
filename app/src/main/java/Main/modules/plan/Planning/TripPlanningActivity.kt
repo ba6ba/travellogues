@@ -38,7 +38,8 @@ import co.lujun.androidtagview.TagView
 import extras.AlertDialog
 import extras.ApplicationConstants
 import modules.Planning.DetailsActivity
-import modules.plan.ShowPlanActivity
+import modules.main.MainActivity
+import modules.plan.Planning.ShowPlanningActivity
 import utils.ValidationUtility
 import kotlin.collections.HashMap
 
@@ -161,6 +162,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         font = Typeface.createFromAsset(context?.assets, "fonts/titilliumwebregular.ttf")
@@ -204,20 +206,25 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
                 tripObject.endDate = ""
                 tripObject.noOfDays = -1
             }
-            if(startAndEndPlace()){
+            if(!startAndEndPlace()){
+                tripObject.startPlace = startP as PlacesData
+                tripObject.endPlace = endP as PlacesData
+            }
+            else {
                 tripObject.startPlace = startP as PlacesData
                 tripObject.endPlace = endP as PlacesData
             }
             tripObject.districts = selectedDist
             tripObject.restaurant = selectedRestaurant
             addDistrictPlaces()
+            selectedPlaces.sortBy { it.sortOrder }
             tripObject.places = selectedPlaces
             checkHotel(tripObject.places)
             tripObject.iD = counter
             tripObject.tripName = "TRIP " + counter.toString() + " " + from.text.toString() + " to " + to.text.toString()
             counter++
 
-            activity?.startActivity(Intent(context!!,ShowPlanActivity::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
+            activity?.startActivity(Intent(context!!, ShowPlanningActivity::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
         }
 
         else {
@@ -245,7 +252,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
             if(goToNext && goThrough){
                 if(!tripObject.places?.isEmpty()!!)
                 {
-                    activity?.startActivity(Intent(context!!,ShowPlanActivity::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
+                    activity?.startActivity(Intent(context!!,ShowPlanningActivity::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
                 }
             }
         }
@@ -270,6 +277,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
 
 
         if(selectedPlaces.size>0){
+            selectedPlaces.sortBy { it.sortOrder }
             tripObject.places = selectedPlaces
             goThrough = true
             getRegionHotel()
@@ -284,11 +292,11 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         for(i in 0 until places?.size!!)
         {
             if(places[i].hotel==null){
-                tripObject.places!![i].hotel = filterHotel(hotels,places[i].placeName!!,places[i].nearBy!!)
+                tripObject.places!![i].hotel = filterHotel(hotels,places[i].placeName!!,places[i].nearBy!!) as HotelData
                 goToNext = true
             }
             else {
-                tripObject.places!![i].hotel = userPlacesDataList[i]?.hotel
+                tripObject.places!![i].hotel = selectedPlaces[i]?.hotel
                 goToNext = true
             }
         }
@@ -333,17 +341,19 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
+    private var sdf = SimpleDateFormat(ApplicationConstants.DATE_FORMAT_UPDATED)
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun clickListeners() {
         planButton.setOnClickListener {
             if(validStartDate()){
-                tripObject.startDate = from.text.toString()
+                tripObject.startDate = from.text.toString().plus(" 09:00")
                 collectData()
             }
             else {
                 from.error = "Required"
                 ValidationUtility.removeErrors(from)
             }
-            Toast.makeText(context,"yet to be implemented",Toast.LENGTH_LONG).show()
         }
     }
 
@@ -383,10 +393,10 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
     @RequiresApi(Build.VERSION_CODES.N)
     private fun updateLabel(whichOne : String) {
         when(whichOne){
-            getString(R.string.fromDate) -> from.setText(simpleDateFormat.format(myCalendar.time), TextView.BufferType.EDITABLE)
+            getString(R.string.fromDate) -> from.setText(sdf.format(myCalendar.time), TextView.BufferType.EDITABLE)
             getString(R.string.toDate) -> {
-                to.setText(simpleDateFormat.format(myCalendar.time), TextView.BufferType.EDITABLE)
-                totalDays.append(ApplicationConstants.TOTAL_DAYS + DateTimeUtility.calculateNoOfDays(from.text.toString(),to.text.toString()))
+                to.setText(sdf.format(myCalendar.time), TextView.BufferType.EDITABLE)
+                totalDays.text = (ApplicationConstants.TOTAL_DAYS + DateTimeUtility.calculateNoOfDays(from.text.toString(),to.text.toString()))
                 totalDays.visibility = View.VISIBLE
             }
         }
@@ -445,7 +455,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
 
 
     private fun setupSpinner() {
-        val dataset = LinkedList(Arrays.asList("Gilgit Baltistan", "KPK","Punjab"))
+        val dataset = LinkedList(Arrays.asList("Punjab","KPK","Gilgit Baltistan"))
         spinner.attachDataSource(dataset)
         spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
 
@@ -598,8 +608,10 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         val dataObj = data?.extras?.getBundle(ApplicationConstants.DETAILS_OBJECT_KEY)
         selectedHotel = (dataObj?.getSerializable(ApplicationConstants.HOTEL_OBJECT_KEY) as HotelData)
         selectedRestaurant = (dataObj?.getSerializable(ApplicationConstants.RESTAURANT_OBJECT_KEY) as? RestaurantData)
+        if(selectedRestaurant!=null){
+            userPlacesDataList.get(startActivityPosition!!)?.restaurantName = (dataObj?.getSerializable(ApplicationConstants.RESTAURANT_OBJECT_KEY) as RestaurantData).restaurantName
+        }
         userPlacesDataList.get(startActivityPosition!!)?.hotel = (dataObj?.getSerializable(ApplicationConstants.HOTEL_OBJECT_KEY) as HotelData)
-        userPlacesDataList.get(startActivityPosition!!)?.restaurantName = (dataObj?.getSerializable(ApplicationConstants.RESTAURANT_OBJECT_KEY) as RestaurantData).restaurantName
         userPlacesAdapter.update(startActivityPosition!!,userPlacesDataList.get(startActivityPosition!!))
     }
 

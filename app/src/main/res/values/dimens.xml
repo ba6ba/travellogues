@@ -74,4 +74,10 @@
     <dimen name="v_large_text_size">32sp</dimen>
     <dimen name="very_v_large_margin">100dp</dimen>
 
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="font_size_verysmall">10sp</dimen>
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_medium">16sp</dimen>
+
 </resources>

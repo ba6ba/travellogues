@@ -10,10 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import com.example.sarwan.final_year_project.R
 import com.squareup.picasso.Picasso
 import modules.chat.ChatActivity
@@ -27,7 +24,7 @@ open class AlertDialog{
         dialog.setContentView(R.layout.no_service_available)
         // set the custom dialog components - text, image and button
         val textView = dialog.findViewById<TextView>(R.id.textView)
-        val okButton = dialog.findViewById<Button>(R.id.okButton)
+        val okButton = dialog.findViewById<ImageButton>(R.id.okButton)
         // if button is clicked, close the custom dialog
         textView.text = response
         okButton.setOnClickListener {

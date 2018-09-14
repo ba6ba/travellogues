@@ -42,6 +42,7 @@ class ApplicationConstants {
         const val OBJECT_KEY= "OBJECT_KEY"
         const val PLACES_OBJECT_KEY = "PLACES_OBJECT_KEY"
         const val DATE_FORMAT = "EEE, d MMM yyyy" //In which you need put here
+        const val DATE_FORMAT_UPDATED = "yyyy-MM-dd" //In which you need put here
         const val DETAILS_ACTIVITY_REQUEST_CODE = 9999
         const val ACTIVITY_REQUEST_CODE = 9009
 

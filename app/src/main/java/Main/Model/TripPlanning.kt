@@ -14,8 +14,8 @@ class TripPlanning : Serializable{
     var places : ArrayList<PlacesData> ? =null
     var hotel : HotelData ? =null
     var restaurant : RestaurantData ? =null
-    var startPlace : PlacesData ? = null
-    var endPlace : PlacesData ? = null
+    var startPlace = PlacesData()
+    var endPlace = PlacesData()
     var cab : CabData ? =null
     var districts : ArrayList<String> ? =null
     var noOfDays : Int ? = null

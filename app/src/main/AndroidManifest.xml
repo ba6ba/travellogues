@@ -120,9 +120,16 @@
             >
         </activity>
 
-        <activity
+      <!--  <activity
             android:name="modules.plan.ShowPlanActivity"
             android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            >
+        </activity>-->
+
+        <activity
+            android:name="modules.plan.Planning.ShowPlanningActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden"
             >
