@@ -3,11 +3,8 @@ package modules.authentication
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import base.ParentActivity
@@ -20,7 +17,7 @@ import utils.ValidationUtility
 
 class LoginActivity : ParentActivity() {
 
-    private var auth : FirebaseAuth?=null
+    private var mAuth : FirebaseAuth?=null
     private var listener : FirebaseAuth.AuthStateListener?=null
     private var alertDialog : AlertDialog ? = null
 
@@ -29,7 +26,7 @@ class LoginActivity : ParentActivity() {
         setContentView(R.layout.activity_login)
         setEmailFromSharedPref()
         alertDialog = AlertDialog()
-        auth = FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
         setOnClickListeners()
     }
 
@@ -84,7 +81,7 @@ class LoginActivity : ParentActivity() {
 
 
     private fun requestForLogin(email: String, password: String) {
-        auth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener(this)
+        mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener(this)
         { task ->
             hideProgress()
             if (task.isSuccessful) {
@@ -104,13 +101,13 @@ class LoginActivity : ParentActivity() {
 
     override fun onStart() {
         super.onStart()
-        auth?.addAuthStateListener { listener }
+        mAuth?.addAuthStateListener { listener }
     }
 
     override fun onStop() {
         super.onStop()
         if(listener!=null){
-            auth?.removeAuthStateListener { listener }
+            mAuth?.removeAuthStateListener { listener }
         }
     }
 

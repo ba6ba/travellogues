@@ -33,6 +33,20 @@ class DistanceUtility {
             return hours + ApplicationConstants.HOURS + minutes + ApplicationConstants.MINUTES
         }
 
+        fun calculateTravelTimeInInt(distance : Long, localTravellingSpeed : Boolean) : Int
+        {   var travellingSpeed = 0.0
+            if(localTravellingSpeed){
+                travellingSpeed = ApplicationConstants.LOCAL_TRAVELLING_SPEED
+            }
+            else travellingSpeed = ApplicationConstants.CITY_TRAVELLING_SPEED
+
+            val hours = (((distance*1000)/travellingSpeed)/3600).toInt()
+            val minutes = ((((distance*1000)/travellingSpeed)/60)%60).toInt()
+            var map = HashMap<Int,Int>()
+            map.put(hours,minutes)
+            return hours
+        }
+
         private fun deg2rad(deg: Double): Double {
             return deg * Math.PI / 180.0
         }

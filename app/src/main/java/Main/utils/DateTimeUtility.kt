@@ -31,7 +31,7 @@ class DateTimeUtility {
         }
 
         fun calculateNoOfDays(startDateValue : String,endDateValue : String): String {
-            val sdf = SimpleDateFormat(ApplicationConstants.DATE_FORMAT_UPDATED)
+            val sdf = SimpleDateFormat(ApplicationConstants.DATE_FORMAT)
             val startDate = sdf.parse(startDateValue)
             val endDate = sdf.parse(endDateValue)
             val diff = endDate.getTime() - startDate.getTime()

@@ -27,18 +27,14 @@ import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v7.widget.LinearLayoutManager
-import android.text.Editable
 import android.text.TextUtils
-import android.text.TextWatcher
-import android.view.inputmethod.EditorInfo
 import android.widget.DatePicker
 import android.widget.TextView
-import android.widget.Toast
 import co.lujun.androidtagview.TagView
 import extras.AlertDialog
 import extras.ApplicationConstants
 import modules.Planning.DetailsActivity
-import modules.main.MainActivity
+import modules.plan.Planning.ShowPlan
 import modules.plan.Planning.ShowPlanningActivity
 import utils.ValidationUtility
 import kotlin.collections.HashMap
@@ -92,15 +88,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
     }
 
     private fun loadCabsData(data: ArrayList<CabData>) {
-        var finalList = ArrayList<CabData>()
-        if(!TextUtils.isEmpty(luxury.text.toString()))
-        {
-            finalList = data.filter { it.cabCategory == luxury.text.toString() } as ArrayList<CabData>
-        }
-        else if(!TextUtils.isEmpty(economic.text.toString()))
-        {
-            finalList = data.filter { it.cabCategory == economic.text.toString() } as ArrayList<CabData>
-        }
+        val finalList = data.filter { it.cabCategory == tripObject.preference } as ArrayList<CabData>
         cabsAdapter.swap(finalList)
     }
     private var hotels: ArrayList<HotelData> ? = null
@@ -167,7 +155,6 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         super.onViewCreated(view, savedInstanceState)
         font = Typeface.createFromAsset(context?.assets, "fonts/titilliumwebregular.ttf")
         initializeLayout()
-        editTextListeners()
         initializeLayoutView()
         settingupTags()
         setupSpinner()
@@ -178,17 +165,18 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
 
     private fun setPreferenceLayout() {
         luxury.setOnClickListener {
-            changeColor(luxury)
+            changeColor(luxury, economic)
             tripObject.preference = ApplicationConstants.LUXURY
         }
         economic.setOnClickListener {
-            changeColor(economic)
+            changeColor(economic,luxury)
             tripObject.preference = ApplicationConstants.ECONOMIC
         }
     }
 
-    private fun changeColor(textView: TextView){
+    private fun changeColor(textView: TextView, update: TextView){
         textView.background = context?.resources?.getDrawable(R.drawable.text_view_background_dark_red)
+        update.background = context?.resources?.getDrawable(R.drawable.text_view_background_red)
     }
 
     private var counter = 1
@@ -216,7 +204,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
             }
             tripObject.districts = selectedDist
             tripObject.restaurant = selectedRestaurant
-            addDistrictPlaces()
+            //addDistrictPlaces()
             selectedPlaces.sortBy { it.sortOrder }
             tripObject.places = selectedPlaces
             checkHotel(tripObject.places)
@@ -224,7 +212,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
             tripObject.tripName = "TRIP " + counter.toString() + " " + from.text.toString() + " to " + to.text.toString()
             counter++
 
-            activity?.startActivity(Intent(context!!, ShowPlanningActivity::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
+            activity?.startActivity(Intent(context!!, ShowPlan::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
         }
 
         else {
@@ -249,7 +237,7 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
             getRegionPlaces(districtList)
             tripObject.tripName = "TRIP " + counter.toString() + " " + from.text.toString() + " to " + to.text.toString()
             counter++
-            if(goToNext && goThrough){
+            if(goToNext){
                 if(!tripObject.places?.isEmpty()!!)
                 {
                     activity?.startActivity(Intent(context!!,ShowPlanningActivity::class.java).putExtra(ApplicationConstants.TRIP_OBJECT_KEY,tripObject))
@@ -279,7 +267,6 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         if(selectedPlaces.size>0){
             selectedPlaces.sortBy { it.sortOrder }
             tripObject.places = selectedPlaces
-            goThrough = true
             getRegionHotel()
         }
     }
@@ -292,11 +279,10 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         for(i in 0 until places?.size!!)
         {
             if(places[i].hotel==null){
-                tripObject.places!![i].hotel = filterHotel(hotels,places[i].placeName!!,places[i].nearBy!!) as HotelData
+                tripObject.places!![i].hotel = filterHotel(hotels,places[i].placeName!!,places[i].nearBy!!)
                 goToNext = true
             }
             else {
-                tripObject.places!![i].hotel = selectedPlaces[i]?.hotel
                 goToNext = true
             }
         }
@@ -305,7 +291,6 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
     private var getDistrict : String ? = null
 
 
-    private var goThrough : Boolean = false
     private var goToNext : Boolean = false
     private fun validEndDate(): Boolean {
         if(!TextUtils.isEmpty(to.text.toString()))
@@ -342,12 +327,12 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
 
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private var sdf = SimpleDateFormat(ApplicationConstants.DATE_FORMAT_UPDATED)
+    private var sdf = SimpleDateFormat(ApplicationConstants.DATE_FORMAT,Locale.US)
     @RequiresApi(Build.VERSION_CODES.N)
     private fun clickListeners() {
         planButton.setOnClickListener {
             if(validStartDate()){
-                tripObject.startDate = from.text.toString().plus(" 09:00")
+                tripObject.startDate = from.text.toString()/*.plus(" 09:00")*/
                 collectData()
             }
             else {
@@ -357,8 +342,6 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    private var simpleDateFormat = SimpleDateFormat(ApplicationConstants.DATE_FORMAT, Locale.US)
     private val myCalendar = Calendar.getInstance()
     private fun calendarBuilder() {
 
@@ -370,14 +353,13 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
 
         }
     }
-
     private fun setDatePickerDialog(whichOne: String) {
         val date = object : DatePickerDialog.OnDateSetListener {
 
             @TargetApi(Build.VERSION_CODES.N)
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
                                    dayOfMonth: Int) {
-                // TODO Auto-generated method stub
+
                 myCalendar.set(Calendar.YEAR, year)
                 myCalendar.set(Calendar.MONTH, monthOfYear)
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
@@ -385,15 +367,26 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
             }
 
         }
-        DatePickerDialog(context, date, myCalendar
-                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+        val datePickerDialog = DatePickerDialog(context, date, myCalendar
+                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH))
+        if(sDate!=null){
+            datePickerDialog.datePicker.minDate = sDate as Long
+        }
+        else {
+            datePickerDialog.datePicker.minDate = Calendar.getInstance().timeInMillis
+        }
+        datePickerDialog.show()
     }
 
+    private var sDate : Long ? = null
     @RequiresApi(Build.VERSION_CODES.N)
     private fun updateLabel(whichOne : String) {
         when(whichOne){
-            getString(R.string.fromDate) -> from.setText(sdf.format(myCalendar.time), TextView.BufferType.EDITABLE)
+            getString(R.string.fromDate) ->
+            {
+                sDate = myCalendar.timeInMillis
+                from.setText(sdf.format(myCalendar.time), TextView.BufferType.EDITABLE)
+            }
             getString(R.string.toDate) -> {
                 to.setText(sdf.format(myCalendar.time), TextView.BufferType.EDITABLE)
                 totalDays.text = (ApplicationConstants.TOTAL_DAYS + DateTimeUtility.calculateNoOfDays(from.text.toString(),to.text.toString()))
@@ -434,7 +427,10 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
             override fun onTagClick(position: Int, text: String?) {
                 tagContainerLayout?.getTagView(position)?.setTagBackgroundColor(R.color.colorPrimary)
                 selectedDist.add(filterData!![0].districts?.get(position)!!)
-                fetchPlaces(getDistrict)
+                if(selectedDist!=null){
+                    filterPlaceData()
+                }
+                else alertDialog.builder(context!!,"Please select at least one District")
             }
 
             override fun onTagCrossClick(position: Int) {
@@ -515,28 +511,6 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         tagBackgrounds?.add(theme!!)
     }
     private var theme : IntArray ? = null
-    private fun fetchPlaces(district: String?) {
-        if(selectedDist!=null){
-            RestClient.getRestAdapter().
-                    getPlaces().
-                    enqueue(object : retrofit2.Callback<PlacesResponse>{
-                        override fun onFailure(call: Call<PlacesResponse>?, t: Throwable?) {
-                            pActivity?.onFailureResponse(t!!)
-                        }
-
-                        override fun onResponse(call: Call<PlacesResponse>?, response: Response<PlacesResponse>?) {
-
-                            if (response?.body() != null) {
-                                filterPlaceData(response.body().data)
-                            }
-                        }
-
-                    })
-        }
-        else {
-            alertDialog.builder(context!!,"Please select atleast one District")
-        }
-    }
 
     private fun getCab() : CabData{
         var packageCategory = ""
@@ -552,14 +526,14 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         return cabs.filter { it.cabCategory == packageCategory }.get(0)
     }
 
-    private fun filterPlaceData(data: ArrayList<PlacesData>?) {
+    private fun filterPlaceData() {
         selectedDist.sorted()
         filteredPlaces = ArrayList()
         placesAdapter.clear()
 
         for(i in 0 until selectedDist.size)
         {
-            filteredPlaces?.add(data?.filter { it.districtName==selectedDist.get(i) } as ArrayList<PlacesData>)
+            filteredPlaces?.add(places?.filter { it.districtName==selectedDist.get(i) } as ArrayList<PlacesData>)
             loadPlaceAdapter(filteredPlaces?.get(i),selectedDist.size,i)
         }
         recCabsRecyclerview.visibility = View.VISIBLE
@@ -606,11 +580,12 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
 
     private fun showSelectedCards(data: Intent?) {
         val dataObj = data?.extras?.getBundle(ApplicationConstants.DETAILS_OBJECT_KEY)
-        selectedHotel = (dataObj?.getSerializable(ApplicationConstants.HOTEL_OBJECT_KEY) as HotelData)
+        selectedHotel = (dataObj?.getSerializable(ApplicationConstants.HOTEL_OBJECT_KEY) as? HotelData)
         selectedRestaurant = (dataObj?.getSerializable(ApplicationConstants.RESTAURANT_OBJECT_KEY) as? RestaurantData)
         if(selectedRestaurant!=null){
             userPlacesDataList.get(startActivityPosition!!)?.restaurantName = (dataObj?.getSerializable(ApplicationConstants.RESTAURANT_OBJECT_KEY) as RestaurantData).restaurantName
         }
+        selectedPlaces?.get(startActivityPosition!!)?.hotel = (dataObj?.getSerializable(ApplicationConstants.HOTEL_OBJECT_KEY) as HotelData)
         userPlacesDataList.get(startActivityPosition!!)?.hotel = (dataObj?.getSerializable(ApplicationConstants.HOTEL_OBJECT_KEY) as HotelData)
         userPlacesAdapter.update(startActivityPosition!!,userPlacesDataList.get(startActivityPosition!!))
     }
@@ -696,41 +671,6 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
         endP = data!!
     }
 
-    private fun editTextListeners() {
-        adults.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.length==2)
-                {
-                    adults.setImeOptions(EditorInfo.IME_ACTION_NEXT)
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {
-            }
-        })
-
-        childs.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.length==2)
-                {
-                    childs.setImeOptions(EditorInfo.IME_ACTION_DONE)
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                childs.setImeOptions(EditorInfo.IME_ACTION_DONE)
-            }
-        })
-    }
-
     override fun onRemove(position: Int) {
         placesAdapter.remove(position)
         placesDataList.removeAt(position)
@@ -739,45 +679,46 @@ class TripPlanningActivity : Fragment(), SwipeRefreshLayout.OnRefreshListener,
     private var availableHotels: HotelData? = null
 
     private fun filterHotel(data: java.util.ArrayList<HotelData>?, filterBy: String, nearBy: String): HotelData? {
-
         val mPreference = tripObject.preference
-        var filterByCity = data?.filter { it.hotelCityName == filterBy }
-        if(filterByCity?.size==0)
+        doFilter(data,filterBy,nearBy,mPreference)
+        if(availableHotels!=null)
         {
-            val temp = data?.filter { it.hotelCityName == nearBy }
-            if (temp?.size as Int>0)
-            {
-                filterByCity = temp
-            }
+            return availableHotels
         }
+        else {
+            return doFilter(data,filterBy,nearBy,updatePreference(mPreference))
+        }
+    }
 
-        var filterByPreference = filterByCity?.filter { it.category == mPreference }
-        if(filterByPreference?.size==0)
+    private fun updatePreference(mPreference: String?) : String{
+        if(mPreference?.equals(preferences[0]) as Boolean)
         {
-            if(mPreference==preferences[0])
-            {
-                val temp = filterByCity?.filter { it.category == preferences[1] }
-                if (temp!=null)
-                {
-                    filterByPreference = temp
-                }
-            }
-            else {
-                val temp = filterByCity?.filter { it.category == preferences[0] }
-                if (temp!=null)
-                {
-                    filterByPreference = temp
-                }
-            }
-            filterByPreference = filterByCity
+            return preferences[1]
         }
+        else {
+            return  preferences[0]
+        }
+    }
+
+    private fun doFilter(data: java.util.ArrayList<HotelData>?, filterBy: String, nearBy: String, mPreference: String?) : HotelData? {
         try {
-            availableHotels = filterByPreference?.get(0)
+            var tempList = (data?.filter { it.hotelCityName == filterBy  && it.category == mPreference })
+            if(tempList==null || tempList?.size == 0)
+            {
+                tempList = (data?.filter { it.hotelCityName == nearBy  && it.category == mPreference })
+                if(tempList!=null || tempList?.size != 0){
+                    availableHotels = tempList!![0]
+                }
+                else availableHotels = null
+            }
+            else { availableHotels = tempList[0] }
+            return availableHotels
         }
-        catch (e : IndexOutOfBoundsException){
-            availableHotels = data?.filter { it.hotelCityName == "Hunza" }?.get(0)
+        catch (e : Exception){
+            e.printStackTrace()
+            availableHotels = null
+            return availableHotels
         }
-        return availableHotels
     }
 
     var preferences = arrayListOf<String>("Luxury","Economical")

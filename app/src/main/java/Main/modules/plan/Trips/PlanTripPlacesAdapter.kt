@@ -123,7 +123,7 @@ class PlanTripPlacesAdapter(private val context : Context, private val dataList 
     }
 
     fun addMore(data: ArrayList<PlacesData>?) {
-        dataList.addAll(data!!)
+        dataList.addAll(data!!.sortedByDescending { it.iD })
         notifyDataSetChanged()
     }
 

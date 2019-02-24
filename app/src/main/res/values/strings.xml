@@ -191,6 +191,7 @@
     <string name="optional"><i>**optional</i></string>
     <string name="luxury">Luxury</string>
     <string name="economic">Economical</string>
+    <string name="tour_plan">Tour Plan</string>
 
 
 </resources>

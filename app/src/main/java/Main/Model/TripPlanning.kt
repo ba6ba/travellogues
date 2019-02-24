@@ -12,7 +12,6 @@ class TripPlanning : Serializable{
     var adults : String ? =null
     var childrens : String ? =null
     var places : ArrayList<PlacesData> ? =null
-    var hotel : HotelData ? =null
     var restaurant : RestaurantData ? =null
     var startPlace = PlacesData()
     var endPlace = PlacesData()

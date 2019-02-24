@@ -19,7 +19,7 @@ class TripTabsPagerAdapter(fragmentManager: FragmentManager)
     override fun getItem(position: Int): Fragment? {
         when (position) {
             0 -> return TripsActivity.newInstance()
-//            1 -> return TripsActivity.newInstance()
+
             1 -> return TripPlanningActivity.newInstance()
 
             else -> return null
@@ -29,7 +29,7 @@ class TripTabsPagerAdapter(fragmentManager: FragmentManager)
     override fun getPageTitle(position: Int): CharSequence? {
         when (position) {
             0 -> return "SINGLE DESTINATION"
-//            1 -> return TripsActivity.newInstance()
+
             1 -> return "MULTIPLE DESTINATIONS"
 
             else -> return null

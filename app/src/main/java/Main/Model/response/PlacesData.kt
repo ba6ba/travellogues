@@ -22,6 +22,7 @@ class PlacesData  : Serializable{
     var nearBy : String ? = null
     var stayTime : Float ? = null
     var sortOrder : Int ? = null
+    var initials : String ? = null
 
     class Location : Serializable {
         var address : String ? = null
